@@ -1,44 +1,37 @@
 const typeDefs = `
   type Event {
     _id: ID
-    name: String
-    location: String
-    studentCount: Int
+    title: String
+    date: Int
+    time: Int
+    description: String
+    image: String
     # Add a queryable field to retrieve an array of Class objects
-    classes: [Class]
+    users: [User]
   }
 
   type User {
     _id: ID
-    name: String
-    building: String
-    creditHours: Int
-    # Add a queryable field to retrieve a single Professor object
-    professor: Professor
+    username: String
+    email: String
+    password: String
+    # Add a queryable field to retrieve a single Demo object
+    demos: [Demo]
   }
 
   type Demo {
     _id: ID
-    name: String
-    building: String
-    creditHours: Int
+    demotitle: String
+    date: Int
+    time: Int
     # Add a queryable field to retrieve a single Professor object
-    professor: Professor
-  }
-
-  # Define what can be queried for each professor
-  type Professor {
-    _id: ID
-    name: String
-    officeHours: String
-    officeLocation: String
-    studentScore: Float
+    user: User
   }
 
   type Query {
-    events: [School]
-    ussers: [Class]
-    demos: [Professor]
+    events: [Event]
+    users: [User]
+    demos: [Demo]
   }
 `;
 
