@@ -1,7 +1,6 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-// import schema from User.js
-const userSchema = require('./User');
+
 
 const eventSchema = new Schema({
     title: {
@@ -41,9 +40,9 @@ eventSchema.virtual('userCount').get(function () {
     return this.savedUsers.length;
 });
 
+
+
 const Event = model('Event', eventSchema);
 
 
-
-
-module.exports = eventSchema;
+module.exports = Event;

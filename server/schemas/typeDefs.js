@@ -1,6 +1,6 @@
 const typeDefs = `
   type Event {
-    _id: ID
+    _id: ID!
     title: String
     date: Int
     time: Int
@@ -11,7 +11,7 @@ const typeDefs = `
   }
 
   type User {
-    _id: ID
+    _id: ID!
     username: String
     email: String
     password: String
@@ -20,11 +20,11 @@ const typeDefs = `
   }
 
   type Demo {
-    _id: ID
+    _id: ID!
     demotitle: String
     date: Int
     time: Int
-    # Add a queryable field to retrieve a single Professor object
+    # Add a queryable field to retrieve a single User object
     user: User
   }
 
