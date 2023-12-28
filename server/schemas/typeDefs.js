@@ -1,4 +1,4 @@
-const typeDefs = `
+const typeDefs = `#graphql
   type Event {
     _id: ID!
     title: String
@@ -6,7 +6,7 @@ const typeDefs = `
     time: Int
     description: String
     image: String
-    # Add a queryable field to retrieve an array of Class objects
+    # Add a queryable field to retrieve an array of User objects
     users: [User]
   }
 
@@ -24,8 +24,6 @@ const typeDefs = `
     demotitle: String
     date: Int
     time: Int
-    # Add a queryable field to retrieve a single User object
-    user: User
   }
 
   type Query {
