@@ -2,8 +2,8 @@ const typeDefs = `#graphql
   type Event {
     _id: ID!
     title: String
-    date: Int
-    time: Int
+    date: String
+    time: String
     description: String
     image: String
     # Add a queryable field to retrieve an array of User objects
@@ -22,14 +22,20 @@ const typeDefs = `#graphql
   type Demo {
     _id: ID!
     demotitle: String
-    date: Int
-    time: Int
+    date: String
+    time: String
   }
 
   type Query {
-    events: [Event]
-    users: [User]
-    demos: [Demo]
+    me: User!
+  }
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addEvent(event: EventInput!): Event
+    removeEvent(eventId: Int!): Event
+    addDemo(demo: DemoInput!): User
+    removeDemo(demoId: Int!): User
   }
 `;
 

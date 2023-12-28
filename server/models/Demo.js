@@ -1,7 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
-const demoSchema = new Schema(
-    {
+const demoSchema = new Schema({
     demotitle: {
         type: String,
         required: true,
@@ -9,11 +8,11 @@ const demoSchema = new Schema(
         trim: true
     },
     date: {
-        type: Number,
+        type: String,
         required: true,
     },
     time: {
-        type: Number,
+        type: String,
         required: true,
     },
     user: {
@@ -22,7 +21,7 @@ const demoSchema = new Schema(
     }
 }
 );
-const Demo = model('Demo', demoSchema);
 
 
-module.exports = Demo;
+
+module.exports = demoSchema;

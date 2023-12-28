@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
 
 
@@ -10,11 +10,11 @@ const eventSchema = new Schema({
         trim: true
     },
     date: {
-        type: Number,
+        type: String,
         required: true,
     },
     time: {
-        type: Number,
+        type: String,
         required: true,
     },
     description: {
@@ -24,25 +24,13 @@ const eventSchema = new Schema({
     image: {
         type: String,
         required: true,
-    },
-    // set savedUsers to be an array of data that adheres to the userSchema
-    savedUsers: [userSchema],
-},
-    // set this to use virtual below
-    {
-        toJSON: {
-            virtuals: true,
-        },
     }
+}
 );
-// when we query an event, we'll also get another field called `eventCount` with the number of saved demos we have
-eventSchema.virtual('userCount').get(function () {
-    return this.savedUsers.length;
-});
 
 
 
-const Event = model('Event', eventSchema);
 
 
-module.exports = Event;
+
+module.exports = eventSchema;

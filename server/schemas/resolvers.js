@@ -1,6 +1,4 @@
-const { Event } = require('../models');
 const { User } = require('../models');
-const { Demo } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth.js')
 
 const resolvers = {
