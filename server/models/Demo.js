@@ -4,11 +4,11 @@ const demoSchema = new Schema({
     demotitle: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
         trim: true
     },
     date: {
-        type: String,
+        type: Date,
         required: true,
     },
     time: {
@@ -19,6 +19,7 @@ const demoSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
+
 }
 );
 

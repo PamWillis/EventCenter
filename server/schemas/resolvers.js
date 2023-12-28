@@ -1,15 +1,12 @@
-const { User } = require('../models');
+const { Event, User, Demo } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth.js')
 
 const resolvers = {
 
   Query: {
     me: async (parent, args, context) => {
-
       return await User.findOne({ _id: context.user._id })
-      // .populate('_id')
-
-    }
+    },
   },
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
@@ -37,14 +34,35 @@ const resolvers = {
           
             return { token, user };
           },
-        addEvent: async (parent, { title, date, time, description, image }) => {
-            // Create and return the new Event object
-            return Event.create({ title, date, time, description, image });
-        },
-        addDemo: async (parent, { demotitle, date, time, user }) => {
-            // Create and return the new Demo object
-            return Demo.create({ demotitle, date, time, user });
-        },
-    }
+          addEvent: async (parent, { title, date, time, description, image }, context) => {
+            // Check if the user is authenticated
+            if (!context.user) {
+              throw new AuthenticationError('Authentication required');
+            }
+                  // Create and return the new Event object associated with the authenticated user
+      return Event.create({
+        title,
+        date,
+        time,
+        description,
+        image,
+        user: context.user._id, // Associate the event with the authenticated user
+      });
+    },
+    addDemo: async (parent, { demotitle, date, time }, context) => {
+      // Check if the user is authenticated
+      if (!context.user) {
+        throw new AuthenticationError('Authentication required');
+      }
+
+      // Create and return the new Demo object associated with the authenticated user
+      return Demo.create({
+        demotitle,
+        date,
+        time,
+        user: context.user._id, // Associate the demo with the authenticated user
+      });
+    },
+  },
 };
 module.exports = resolvers;

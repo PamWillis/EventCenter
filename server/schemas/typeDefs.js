@@ -1,42 +1,63 @@
-const typeDefs = `#graphql
+const { gql } = require('apollo-server');
+
+const typeDefs = gql`
+  scalar Date
+
   type Event {
     _id: ID!
-    title: String
-    date: String
-    time: String
-    description: String
-    image: String
-    # Add a queryable field to retrieve an array of User objects
-    users: [User]
-  }
+  title: String
+  date: Date
+  time: String
+  description: String
+  image: String
+  # Change to an array of User objects to represent many users
+  users: [User]
+}
 
-  type User {
-    _id: ID!
-    username: String
-    email: String
-    password: String
-    # Add a queryable field to retrieve a single Demo object
-    demos: [Demo]
-  }
+type User {
+  _id: ID!
+  username: String
+  email: String
+  # Consider removing password field for security reasons
+  demos: [Demo]  # Many demos associated with a user
+  events: [Event]  # Many events associated with a user
+}
 
-  type Demo {
-    _id: ID!
-    demotitle: String
-    date: String
-    time: String
-  }
+type Demo {
+  _id: ID!
+  demotitle: String
+  date: Date
+  time: String
+  user: User  # Reference to the user who owns the demo
+}
 
-  type Query {
-    me: User!
-  }
-  type Mutation {
-    login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    addEvent(event: EventInput!): Event
-    removeEvent(eventId: Int!): Event
-    addDemo(demo: DemoInput!): User
-    removeDemo(demoId: Int!): User
-  }
+type Auth {
+  token: String
+  user: User
+}
+
+type Query {
+  me: User
+}
+
+type Mutation {
+  login(email: String!, password: String!): Auth
+  addUser(username: String!, email: String!, password: String!): Auth
+
+addEvent(
+    title: String!
+    date: Date!
+    time: String!
+    description: String!
+    image: String!
+  ): Event
+addDemo(
+    demotitle: String!
+    date: Date!
+    time: String!
+  ): Demo
+  # ... other mutations
+}
 `;
 
 module.exports = typeDefs;
