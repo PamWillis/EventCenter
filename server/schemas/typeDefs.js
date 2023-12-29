@@ -21,6 +21,7 @@ type User {
   # Consider removing password field for security reasons
   demos: [Demo]  # Many demos associated with a user
   events: [Event]  # Many events associated with a user
+  isAdmin: Boolean
 }
 
 type Demo {
@@ -41,21 +42,34 @@ type Query {
 }
 
 type Mutation {
-  login(email: String!, password: String!): Auth
-  addUser(username: String!, email: String!, password: String!): Auth
+  login(
+    email: String!
+    password: String!
+    ): Auth
 
-addEvent(
+  addUser(
+    username: String!
+    email: String!
+    password: String!
+    isAdmin: Boolean
+    ): Auth
+
+  addEvent(
     title: String!
     date: Date!
     time: String!
     description: String!
     image: String!
-  ): Event
-addDemo(
+    ): Event
+
+  addDemo(
     demotitle: String!
     date: Date!
     time: String!
-  ): Demo
+    ): Demo
+  removeDemo(
+    demoId: ID!
+    ): Demo   
   # ... other mutations
 }
 `;

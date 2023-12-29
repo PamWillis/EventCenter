@@ -21,6 +21,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false, // Default value is false (not an admin)
+    },
     // set savedBooks to be an array of data that adheres to the bookSchema
     savedDemos: [
       {
