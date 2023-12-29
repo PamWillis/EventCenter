@@ -38,6 +38,10 @@ type Auth {
 }
 
 type Query {
+  demos: [Demo]
+  events: [Event]
+  users: [User]
+  user(username: String!): User
   me: User
 }
 

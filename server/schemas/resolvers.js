@@ -5,7 +5,10 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       return await User.findOne({ _id: context.user._id });
-    }
+    },
+    events: async () => {
+      return await Event.find({}).populate('users');
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
