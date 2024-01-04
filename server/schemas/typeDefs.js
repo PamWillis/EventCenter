@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server');
+const typeDefs = `#graphql
 
-const typeDefs = gql`
+
   scalar Date
 
   type Event {
@@ -41,7 +41,6 @@ type Query {
   demos: [Demo]
   events: [Event]
   users: [User]
-  user(username: String!): User
   me: User
 }
 
@@ -66,15 +65,19 @@ type Mutation {
     image: String!
     ): Event
 
+  removeEvent(
+    eventId: ID!
+    ): Event  
+
   addDemo(
     demotitle: String!
     date: Date!
     time: String!
     ): Demo
+
   removeDemo(
     demoId: ID!
     ): Demo   
-  # ... other mutations
 }
 `;
 
