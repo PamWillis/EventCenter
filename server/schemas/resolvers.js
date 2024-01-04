@@ -9,6 +9,12 @@ const resolvers = {
     events: async () => {
       return await Event.find({}).populate('users');
     },
+    users: async () => {
+      return await User.findAll({}).populate('users');
+    },
+    demos: async () => {
+      return await Demo.find({}).populate('users');
+    }
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
