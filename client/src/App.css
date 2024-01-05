@@ -1,0 +1,80 @@
+html,
+body,
+h1,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+
+  button:hover {
+    border-color: #646cff;
+  }
+  
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Media Queries */
+
+
+/* Styles for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+    /* Your CSS rules for small screens here */
+}
+
+/* Styles for screens between 600px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    /* Your CSS rules for medium-sized screens here */
+}
+
+/* Styles for screens larger than 900px */
+@media screen and (min-width: 901px) {
+    /* Your CSS rules for large screens here */
+}
