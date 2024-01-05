@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 // import schema from Book.js
 const demoSchema = require('./Demo');
+const eventSchema = require('./Event');
 
 const userSchema = new Schema(
   {
@@ -25,13 +26,8 @@ const userSchema = new Schema(
       type: Boolean,
       default: false, // Default value is false (not an admin)
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    savedDemos: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Demo',
-      }
-    ],
+    savedDemos: [demoSchema], // Correct placement inside the Schema
+    savedEvents: [eventSchema],
   },
   // set this to use virtual below
   {
