@@ -1,57 +1,59 @@
-const { GraphQLError } = require('graphql');
-const jwt = require('jsonwebtoken');
-require('dotenv').config(); // Load environment variables from .env file
+// use this to decode a token and get the user's information out of it
+import decode from 'jwt-decode';
 
-const secret = process.env.SECRET;
+// create a new class to instantiate for a user
+class AuthService {
+  // get user data
+  getProfile() {
+    return decode(this.getToken());
+  }
+  saveBook() {
+    // Return decoded user information
+    return this.getProfile();
+  }
+  useAuth() {
+    const token = this.getToken();
+    const user = token ? decode(token) : null;
 
-// set token secret and expiration date
-const expiration = process.env.EXPIRATION;
+    return user;
+  }
+  // check if user's logged in
+  loggedIn() {
+    // Checks if there is a saved token and it's still valid
+    const token = this.getToken();
+    return !!token && !this.isTokenExpired(token); // handwaiving here
+  }
 
+  // check if token is expired
+  isTokenExpired(token) {
+    try {
+      const decoded = decode(token);
+      if (decoded.exp < Date.now() / 1000) {
+        return true;
+      } else return false;
+    } catch (err) {
+      return false;
+    }
+  }
 
-module.exports = {
-  AuthenticationError: new GraphQLError('Could not authenticate user.', {
-    extensions: {
-      code: 'UNAUTHENTICATED',
-    },
-  }),
+  getToken() {
+    // Retrieves the user token from localStorage
+    return localStorage.getItem('id_token');
+  }
 
-    // function for our authenticated routes
-    authMiddleware: function ({req}) {
-      // allows token to be sent via  req.body,req.query or headers
-      let token = req.body.token || req.query.token || req.headers.authorization;
+  login(idToken) {
+    // Saves user token to localStorage
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/');
+  }
 
-      // ["Bearer", "<tokenvalue>"]
-      if (req.headers.authorization) {
-        token = token.split(' ').pop().trim();
-      }
+  logout() {
+    // Clear user token and profile data from localStorage
+    localStorage.removeItem('id_token');
+    // this will reload the page and reset the state of the application
+    window.location.assign('/');
+  }
 
-      if (!token) {
-        return req;
-      }
+}
 
-      // verify token and get user data out of it
-      try {
-        const { data } = jwt.verify(token, secret, { maxAge: expiration });
-        req.user = data;
-      } catch {
-        console.log('Invalid token');
-      }
-
-      return req;
-    },
-    signToken: function ({ username, email, _id }) {
-      const payload = { username, email, _id };
-
-      return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-    },
-    logout: function () {
-      // Check if localStorage is available (browser environment)
-      if (typeof localStorage !== 'undefined') {
-        localStorage.removeItem('id_token');
-      } else {
-        // Handle non-browser environment (e.g., server-side)
-        console.log('Logout not supported in this environment.');
-      }
-    },
-  };
-  
+export default new AuthService();

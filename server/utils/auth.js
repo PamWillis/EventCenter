@@ -1,8 +1,12 @@
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
-const secret = 'mysecretssshhhhhhh';
+require('dotenv').config(); // Load environment variables from .env file
 
-const expiration = '2h';
+const secret = process.env.SECRET;
+
+// set token secret and expiration date
+const expiration = process.env.EXPIRATION;
+
 
 module.exports = {
   AuthenticationError: new GraphQLError('Could not authenticate user.', {
@@ -11,43 +15,43 @@ module.exports = {
     },
   }),
 
-  authMiddleware: function ({ req }) {
-    let token = req.body.token || req.query.token || req.headers.authorization;
+    // function for our authenticated routes
+    authMiddleware: function ({req}) {
+      // allows token to be sent via  req.body,req.query or headers
+      let token = req.body.token || req.query.token || req.headers.authorization;
 
-    if (req.headers.authorization) {
-      token = token.split(' ').pop().trim();
-    }
-
-    if (!token) {
-      return req;
-    }
-
-    try {
-      const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      req.user = data;
-
-      // Check if the user is an admin
-      if (req.user && req.user.isAdmin) {
-        return req;
-      } else {
-        throw new GraphQLError('User is not authorized to perform this action.', {
-          extensions: {
-            code: 'UNAUTHORIZED',
-          },
-        });
+      // ["Bearer", "<tokenvalue>"]
+      if (req.headers.authorization) {
+        token = token.split(' ').pop().trim();
       }
-    } catch {
-      throw new GraphQLError('Invalid token or user is not authorized.', {
-        extensions: {
-          code: 'UNAUTHORIZED',
-        },
-      });
-    }
-  },
 
-  signToken: function ({ username, email, _id, isAdmin }) {
-    const payload = { username, email, _id, isAdmin };
+      if (!token) {
+        return req;
+      }
 
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-  },
-};
+      // verify token and get user data out of it
+      try {
+        const { data } = jwt.verify(token, secret, { maxAge: expiration });
+        req.user = data;
+      } catch {
+        console.log('Invalid token');
+      }
+
+      return req;
+    },
+    signToken: function ({ username, email, _id }) {
+      const payload = { username, email, _id };
+
+      return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    },
+    logout: function () {
+      // Check if localStorage is available (browser environment)
+      if (typeof localStorage !== 'undefined') {
+        localStorage.removeItem('id_token');
+      } else {
+        // Handle non-browser environment (e.g., server-side)
+        console.log('Logout not supported in this environment.');
+      }
+    },
+  };
+  
