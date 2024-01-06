@@ -8,7 +8,7 @@ import ErrorPage from './pages/ErrorPage'
 import SearchBooks from './pages/SearchBooks'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
-import SavedBooks from './pages/SavedBooks'
+import Home from './pages/Home'
 
 const router = createBrowserRouter([
   {
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignupForm />
       }, {
-        path: '/savedbooks',
-        element: <SavedBooks />
+        path: '/home',
+        element: <Home />
       }
     ]
   },
