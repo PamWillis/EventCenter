@@ -1,13 +1,12 @@
 const typeDefs = `#graphql
 
-
-  scalar Date
+scalar Date
 
   type User {
   _id: ID!
   username: String
-  email: { type: String, unique: true }
-  password: String
+  email: String!
+  password: String!
   isAdmin: Boolean
   savedDemos: [Demo]  # Many demos associated with a user
   savedEvents: [Event]  # Many events associated with a user

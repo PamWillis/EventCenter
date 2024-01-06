@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const uniqueValidator = require('mongoose-unique-validator');
 
 // import schema from Book.js
 const demoSchema = require('./Demo');
@@ -11,11 +12,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      minlength: 3,
+      maxlength: 30,
     },
     email: {
       type: String,
       required: true,
       unique: true,
+      uniqueCaseInsensitive: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
     password: {
