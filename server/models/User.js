@@ -30,8 +30,8 @@ const userSchema = new Schema(
       type: Boolean,
       default: false, // Default value is false (not an admin)
     },
-    savedDemos: [demoSchema], // Correct placement inside the Schema
-    savedEvents: [eventSchema],
+    Demos: [demoSchema], // Correct placement inside the Schema
+    Events: [eventSchema],
   },
   // set this to use virtual below
   {

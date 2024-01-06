@@ -8,8 +8,9 @@ scalar Date
   email: String!
   password: String!
   isAdmin: Boolean
-  savedDemos: [Demo]  # Many demos associated with a user
-  savedEvents: [Event]  # Many events associated with a user
+  Demos: [Demo]  # Many demos associated with a user
+  Events: [Event]  # Many events associated with a user
+  event: Event
 }
 type Event {
     _id: ID!
@@ -19,9 +20,9 @@ type Event {
   description: String
   image: String
   users: [User]
+  user: User
 }
 input EventInput {
-  eventId: String!
   title: String!
   date: Date!
   time: String!
@@ -37,7 +38,6 @@ type Demo {
 }
 
 input DemoInput {
-  demoId: String!
   demotitle: String!
   date: Date!
   time: String!
@@ -60,9 +60,9 @@ type Query {
 type Mutation {
 login(email: String!, password: String!): Auth
 addUser(username: String!, email: String!, password: String!, isAdmin: Boolean): Auth
-addEvent(event: EventInput): User
+createEvent(input: EventInput): User
 removeEvent(eventId: ID!): User  
-addDemo(demo: DemoInput): User
+addDemo(demo: DemoInput): Demo
 removeDemo(demoId: ID!): User   
 }
 `;
