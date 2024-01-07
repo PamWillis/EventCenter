@@ -4,10 +4,10 @@ import './index.css'
 
 import App from './App'
 import ErrorPage from './pages/ErrorPage'
-import SearchBooks from './pages/SearchBooks'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
 import Home from '../src/pages/Home'
+import AboutUs from '../src/pages/AboutUs'
 
 const router = createBrowserRouter([
   {
@@ -17,17 +17,14 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <SearchBooks />
+        element: <Home />
       }, {
         path: '/login',
         element: <LoginForm />
       }, {
         path: '/signup',
         element: <SignupForm />
-      }, {
-        path: '/home',
-        element: <Home />
-      }
+      }, 
     ]
   },
 ]);
