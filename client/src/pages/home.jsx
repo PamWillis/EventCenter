@@ -10,9 +10,9 @@ export default function Home() {
     <div>
       <h1>Welcome to my website!</h1>
       <div className="image-links-container">
-        <Link to="/about">
+        <Link to="/AboutUs">
         <img src={aboutImage} alt="about me" />
-          <p>About</p>
+          <p>About Us</p>
         </Link>
         <Link to="/product">
           <img src={buyImage} alt="Buy-Now" />
@@ -24,7 +24,7 @@ export default function Home() {
         </Link>
         <Link to="/contact">
           <img src={resumeImage} alt="Resume" />
-          <p>Contact</p>
+          <p>Contact\</p>
         </Link>
       </div>
     </div>
