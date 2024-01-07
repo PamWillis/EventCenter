@@ -7,7 +7,7 @@ import ErrorPage from './pages/ErrorPage'
 import SearchBooks from './pages/SearchBooks'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
-import Home from './pages/Home'
+import Home from '../src/pages/Home'
 
 const router = createBrowserRouter([
   {

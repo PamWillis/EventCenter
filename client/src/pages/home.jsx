@@ -1,8 +1,8 @@
 import React from 'react';
 import aboutImage from '../assets/home/about.jpg';
-import buyImage from '../assets/home/buy-now.jpg';
-import projectImage from '../assets/home/projects.jpg';
-import resumeImage from '../assets/home/resume.jpg';
+import buyImage from '../assets/home/buyImage.jpg';
+import projectImage from '../assets/home/project.jpg';
+import resumeImage from '../assets/home/resume.png';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
