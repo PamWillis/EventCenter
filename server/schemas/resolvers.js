@@ -17,10 +17,10 @@ const resolvers = {
     }
   },
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
+    addUser: async (parent, { username, email, password, isAdmin }) => {
       // Create a user
-      const user = await User.create({ username, email, password });
-      // To reduce friction for the user, sign a JSON Web Token and log the user in after creation
+      const user = await User.create({ username, email, password, isAdmin });
+      // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
       const token = signToken(user);
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
@@ -42,56 +42,63 @@ const resolvers = {
 
       return { token, user };
     },
+
     addEvent: async (parent, { title, date, time, description, image }, context) => {
-      // Check if the user is authenticated
-      if (!context.user) {
-        throw new AuthenticationError('Authentication required');
-      }
+      if (context.user) {
+        const event = await Event.create({
+          title, date, time, description, image: context.user.username,
+        });
 
-      // Check if the user is an admin
-      if (!context.user.isAdmin) {
-        throw new AuthenticationError('User is not authorized to create events');
-      }
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { events: event._id } }
+        );
 
-      // Create and return the new Event object associated with the authenticated user
-      return Event.create({
-        title,
-        date,
-        time,
-        description,
-        image,
-        user: context.user._id, // Associate the event with the authenticated user
-      });
+        return event;
+      }
+      throw AuthenticationError;
     },
-    addDemo: async (parent, { demotitle, date, time }, context) => {
+    addDemo: async (parent, { demo }, context) => {
       // Check if the user is authenticated
-      if (!context.user) {
-        throw new AuthenticationError('Authentication required');
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { savedDemos: demo },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
       }
+      throw new AuthenticationError('Authentication error: User not logged in');
+    },
+    removeEvent: async (parent, { eventId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedEvents: { eventId } } },
+          { new: true }
+        );
 
-      // Create and return the new Demo object associated with the authenticated user
-      return Demo.create({
-        demotitle,
-        date,
-        time,
-        user: context.user._id, // Associate the demo with the authenticated user
-      });
+        return updatedUser;
+      }
+      throw new AuthenticationError('You are not authenticated.');
     },
     removeDemo: async (parent, { demoId }, context) => {
-      // Check if the user is authenticated
-      if (!context.user) {
-        throw new AuthenticationError('Authentication required');
-      }
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedDemos: { demoId } } },
+          { new: true }
+        );
 
-      // Check if the user is an admin
-      if (!context.user.isAdmin) {
-        throw new AuthenticationError('User is not authorized to remove demos');
+        return updatedUser;
       }
-
-      // Remove the demo associated with the provided demoId
-      return Demo.findByIdAndRemove(demoId);
+      throw new AuthenticationError('You are not authenticated.');
     },
-  }
+  },
 };
 
 module.exports = resolvers;
