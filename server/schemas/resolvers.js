@@ -42,39 +42,21 @@ const resolvers = {
 
       return { token, user };
     },
-    // addEvent: async (parent, { title, date, time, description, image  }) => {
-    //   return await Event.create({ title, date, time, description, image  });
-    // },
-    // addEvent: async (parent, { title, date, time, description, image }, { user }) => {
-    //   // Check if the user is authorized (e.g., based on their role or specific conditions)
-    //   if (!user) {
-    //     throw new Error('Unauthorized. Please log in.');
-    //   }
 
-    //   const event = await Event.create({ title, date, time, description, image });
-
-    //   return { event };
-    // },
-    createEvent: async (parent, { eventInput, User }, context) => {
-      // Check if the user is authenticated
+    addEvent: async (parent, { title, date, time, description, image }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id);
-    
-        // Check if the user exists
-        if (!user) {
-          throw new AuthenticationError('User not found');
-        }
-        // Create a new event object
-        const event = new Event(eventInput);
-        // Add the event to the user's events array
-        user.events.push(event);
-        // Save the updated user document
-        await user.save();
-    
+        const event = await Event.create({
+          title, date, time, description, image: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { events: event._id } }
+        );
+
         return event;
       }
-    
-      throw new AuthenticationError('User not authenticated');
+      throw AuthenticationError;
     },
     addDemo: async (parent, { demo }, context) => {
       // Check if the user is authenticated
