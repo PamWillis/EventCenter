@@ -6,7 +6,7 @@
 import React from 'react';
 
 
-import Auth from '../src/utils/auth';
+import AuthService from '..//utils/auth';
 
 const Navbar = () => {
   return (
