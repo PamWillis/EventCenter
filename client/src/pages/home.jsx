@@ -12,6 +12,9 @@ export default function Home() {
       <h1>Welcome to my website!</h1>
       <h1 className='underline'>Hello World</h1>
       <div className="">
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
         <Link to="/AboutUs">
         <img src={aboutImage}
         style={{ width: "750px", height: "500px" }}alt="about me" />
