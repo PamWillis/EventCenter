@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import './index.css'
+import '../src/index.css'
 
 import App from './App'
 import ErrorPage from './pages/ErrorPage'
@@ -24,6 +24,9 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <SignupForm />
+      }, {
+        path: '/AboutUs',
+        element: <AboutUs />
       }, 
     ]
   },
