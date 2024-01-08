@@ -14,7 +14,6 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-white font-bold text-3xl">EventCenter</div>
-        
         {/* Navigation links */}
         <ul className="flex space-x-4">
           <li><a href="/" className="text-white hover:text-gray-300">Home</a></li>
