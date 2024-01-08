@@ -8,9 +8,13 @@ scalar Date
   email: String!
   password: String!
   isAdmin: Boolean
-  demos: [Demo]  # Many demos associated with a user
-  events: [Event]  # Many events associated with a user
-  event: Event
+  savedDemos: [Demo]  # Many demos associated with a user
+  savedEvents: [Event]  # Many events associated with a user
+}
+type UserType {
+  _id: ID
+  username: String
+  # Add other fields as needed
 }
 type Event {
     _id: ID!
@@ -20,7 +24,8 @@ type Event {
   description: String
   image: String
   users: [User]
-  user: User
+  demos: [Demo]
+  user: User  # Reference to the user who owns the event
 }
 input EventInput {
   title: String!
@@ -49,20 +54,18 @@ type Auth {
 }
 
 type Query {
-  demos: [Demo]
-  demo(id: ID!): Demo
-  events: [Event]
-  event(id: ID!): Event
-  users: [User]
   me: User!
+  eventsFromAllUsers: [Event]
+  demosFromAllUsers: [Demo]
+  usersFromEvent: [User]
 }
 
 type Mutation {
 login(email: String!, password: String!): Auth
 addUser(username: String!, email: String!, password: String!, isAdmin: Boolean): Auth
-addEvent(title: String, date: Date, time: String, description: String, image: String): Event
+saveEvent(event: EventInput!): User
 removeEvent(eventId: ID!): User  
-addDemo(demo: DemoInput): Demo
+saveDemo(demo: DemoInput): User
 removeDemo(demoId: ID!): User   
 }
 `;
