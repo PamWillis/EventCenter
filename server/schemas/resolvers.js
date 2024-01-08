@@ -6,16 +6,36 @@ const resolvers = {
     me: async (parent, args, context) => {
       return await User.findOne({ _id: context.user._id });
     },
-    events: async () => {
-      return await Event.find({}).populate('users');
+    eventsFromAllUsers: async () => {
+      try {
+        const events = await Event.find().populate('users');
+        return events;
+      } catch (error) {
+        throw new Error('Failed to fetch events from all users');
+      }
     },
-    users: async () => {
-      return await User.findAll({}).populate('users');
+    demosFromAllUsers: async () => {
+      try {
+        const demos = await Demo.find().populate('users');
+        return demos;
+      } catch (error) {
+        throw new Error('Failed to fetch events from all users');
+      }
     },
-    demos: async () => {
-      return await Demo.find({}).populate('users');
+    usersFromEvent: async (_, { eventId }) => {
+      try {
+        const event = await Event.findById(eventId).populate('users');
+        if (!event) {
+          throw new Error('Event not found');
+        }
+        return event.users;
+      } catch (error) {
+        throw new Error('Failed to fetch users from event');
+      }
     }
   },
+  //_____________________________________________________________________________________________________
+
   Mutation: {
     addUser: async (parent, { username, email, password, isAdmin }) => {
       // Create a user
@@ -42,24 +62,25 @@ const resolvers = {
 
       return { token, user };
     },
+//_________________________________________________________
 
-    addEvent: async (parent, { title, date, time, description, image }, context) => {
+    saveEvent: async (parent, { event }, context) => {
       if (context.user) {
-        const event = await Event.create({
-          title, date, time, description, image: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
+        return User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { events: event._id } }
+          {
+            $addToSet: { savedEvents: event },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
-
-        return event;
       }
-      throw AuthenticationError;
+      throw new AuthenticationError('Authentication error: User not logged in');
     },
-    addDemo: async (parent, { demo }, context) => {
-      // Check if the user is authenticated
+
+    saveDemo: async (parent, { demo }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
@@ -74,6 +95,7 @@ const resolvers = {
       }
       throw new AuthenticationError('Authentication error: User not logged in');
     },
+
     removeEvent: async (parent, { eventId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(

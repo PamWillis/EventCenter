@@ -30,8 +30,8 @@ const userSchema = new Schema(
       type: Boolean,
       default: false, // Default value is false (not an admin)
     },
-    Demos: [demoSchema], // Correct placement inside the Schema
-    Events: [eventSchema],
+    savedDemos: [demoSchema], // Correct placement inside the Schema
+   savedEvents: [eventSchema],
   },
   // set this to use virtual below
   {
@@ -55,6 +55,11 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+// When we query a user, we'll also get another field called `eventCount` with the number of saved events we have
+userSchema.virtual('eventCount').get(function () {
+  return this.savedEvents.length;
+});
 
 // When we query a user, we'll also get another field called `demoCount` with the number of saved demos we have
 userSchema.virtual('demoCount').get(function () {
