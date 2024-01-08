@@ -6,8 +6,10 @@ import App from './App'
 import ErrorPage from './pages/ErrorPage'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
-import Home from '../src/pages/Home'
-import AboutUs from '../src/pages/AboutUs'
+import Home from './pages/Home'
+import AboutUs from './pages/AboutUs'
+import Events from './pages/Events'
+import Vendors from './pages/Vendors';
 
 const router = createBrowserRouter([
   {
@@ -25,10 +27,18 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignupForm />
       }, {
-      path: '/AboutUs',
+        path: '/AboutUs',
         element: <AboutUs />
-      }, 
-    ]}
+      },
+      {
+        path: '/Events',
+        element: <Events />
+      }, {
+        path: '/Vendors',
+        element: <Vendors />
+      },
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
