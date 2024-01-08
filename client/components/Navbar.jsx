@@ -17,11 +17,13 @@ const Navbar = () => {
         
         {/* Navigation links */}
         <ul className="flex space-x-4">
-          <li><a href="#" className="text-white hover:text-gray-300">Home</a></li>
+          <li><a href="/" className="text-white hover:text-gray-300">Home</a></li>
           <li><a href="../AboutUs" className="text-white hover:text-gray-300">About</a></li>
           {/* Alan did this one :) ^^^ */}
-          <li><a href="#" className="text-white hover:text-gray-300">Services</a></li>
-          <li><a href="#" className="text-white hover:text-gray-300">Contact</a></li>
+          <li><a href="../Events" className="text-white hover:text-gray-300">Events</a></li>
+          <li><a href="../Vendors" className="text-white hover:text-gray-300">Vendors</a></li>
+          <li><a href="../login" className="text-white hover:text-gray-300">Login</a></li>
+
         </ul>
       </div>
     </nav>
