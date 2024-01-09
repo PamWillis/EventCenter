@@ -19,3 +19,20 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const GET_ALL_EVENTS = gql`
+  query EventsFromAllUsers {
+    eventsFromAllUsers {
+      _id
+      title
+      date
+      time
+      description
+      image
+    }
+  }
+`;
+
+export const useGetAllEvents = () => {
+  return useQuery(GET_ALL_EVENTS);
+};
