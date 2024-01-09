@@ -1,10 +1,8 @@
-const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const uniqueValidator = require('mongoose-unique-validator');
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-// import schema from Book.js
-const demoSchema = require('./Demo');
-const eventSchema = require('./Event');
+const ObjectId = Schema.Types.ObjectId;
 
 const userSchema = new Schema(
   {
@@ -30,8 +28,8 @@ const userSchema = new Schema(
       type: Boolean,
       default: false, // Default value is false (not an admin)
     },
-    savedDemos: [demoSchema], // Correct placement inside the Schema
-   savedEvents: [eventSchema],
+    savedDemos: [{demotitle: String, date: Date, time: String, user: ObjectId}],
+    savedEvents: [{title: String, date: Date, time: String, description: String, image: String, user: ObjectId}],
   },
   // set this to use virtual below
   {

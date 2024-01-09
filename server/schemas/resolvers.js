@@ -1,5 +1,6 @@
-const { Event, User, Demo } = require('../models');
+const { User, Event, Demo } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth.js')
+const mongoose = require('mongoose')
 
 const resolvers = {
   Query: {
@@ -8,15 +9,27 @@ const resolvers = {
     },
     eventsFromAllUsers: async () => {
       try {
-        const events = await Event.find().populate('users');
+        const users = await User.find();
+        const events = [];
+
+        for (const user of users) {
+          events.push(...user.savedEvents);
+        }
         return events;
       } catch (error) {
+        console.log(error)
         throw new Error('Failed to fetch events from all users');
+
       }
     },
     demosFromAllUsers: async () => {
       try {
-        const demos = await Demo.find().populate('users');
+        const users = await User.find();
+        const demos = [];
+
+        for (const user of users) {
+          demos.push(...user.savedDemos);
+        }
         return demos;
       } catch (error) {
         throw new Error('Failed to fetch events from all users');
@@ -34,7 +47,6 @@ const resolvers = {
       }
     }
   },
-  //_____________________________________________________________________________________________________
 
   Mutation: {
     addUser: async (parent, { username, email, password, isAdmin }) => {
@@ -62,7 +74,6 @@ const resolvers = {
 
       return { token, user };
     },
-//_________________________________________________________
 
     saveEvent: async (parent, { event }, context) => {
       if (context.user) {
@@ -96,6 +107,48 @@ const resolvers = {
       throw new AuthenticationError('Authentication error: User not logged in');
     },
 
+    signUpForEvent: async (_, { userId, eventId }) => {
+     console.log(eventId, userId)
+      try {
+        // Validate input data (you can add more validation as needed)
+        if (!userId || !eventId) {
+          throw new Error('Invalid input. Both userId and eventId are required.');
+        }
+
+        // Check if the event exists
+        const event = await Event.findById(eventId);
+        if (!event) {
+          throw new Error('Event not found');
+        }
+
+        // Add the user to the list of vendors for the event
+        event.vendors.push(userId);
+    
+        // Save the updated event in the database
+        const updatedEvent = await event.save();
+
+        // Optionally, you can update the user as well (e.g., add the event to the user's savedEvents)
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: userId },
+          { $addToSet: { savedEvents: eventId } },
+          { new: true, runValidators: true }
+        );
+
+        // Return the updated event or any relevant information
+        return {
+          success: true,
+          message: 'User signed up for the event successfully.',
+          event: updatedEvent,
+        };
+      } catch (error) {
+        return {
+          success: false,
+          message: error.message,
+          event: null,
+        };
+      }
+    },
+
     removeEvent: async (parent, { eventId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -108,6 +161,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You are not authenticated.');
     },
+
     removeDemo: async (parent, { demoId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(

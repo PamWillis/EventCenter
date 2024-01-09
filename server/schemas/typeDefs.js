@@ -14,7 +14,6 @@ scalar Date
 type UserType {
   _id: ID
   username: String
-  # Add other fields as needed
 }
 type Event {
     _id: ID!
@@ -23,9 +22,8 @@ type Event {
   time: String
   description: String
   image: String
-  users: [User]
+  vendors: [User]
   demos: [Demo]
-  user: User  # Reference to the user who owns the event
 }
 input EventInput {
   title: String!
@@ -39,7 +37,7 @@ type Demo {
   demotitle: String
   date: Date
   time: String
-  user: User  # Reference to the user who owns the demo
+  user: User
 }
 
 input DemoInput {
@@ -66,7 +64,8 @@ addUser(username: String!, email: String!, password: String!, isAdmin: Boolean):
 saveEvent(event: EventInput!): User
 removeEvent(eventId: ID!): User  
 saveDemo(demo: DemoInput): User
-removeDemo(demoId: ID!): User   
+removeDemo(demoId: ID!): User 
+signUpForEvent(eventId: ID!, userId: ID!): User
 }
 `;
 
