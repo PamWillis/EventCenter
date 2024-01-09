@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import SignupForm from './SignupForm';
 
 
 const LoginForm = () => {
@@ -84,8 +85,11 @@ const LoginForm = () => {
           {error.message}
         </div>
       )}
+      <h1>Join Our Network of Vendors!</h1>
+      <SignupForm />
     </>
   );
 };
+
 
 export default LoginForm;
