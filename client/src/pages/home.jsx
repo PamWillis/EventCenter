@@ -72,6 +72,7 @@ export default function Home() {
       <div className="h-screen flex justify-center items-center bg-white">
         <h2 className="text-3xl font-bold">Contact Us</h2>
         {/* Add contact content here */}
+
       </div>
     </div>
   );
