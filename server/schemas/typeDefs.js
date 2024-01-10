@@ -56,6 +56,8 @@ type Query {
   eventsFromAllUsers: [Event]
   demosFromAllUsers: [Demo]
   usersFromEvent: [User]
+  allUsers: [User]
+  allEvents: [Event]
 }
 
 type Mutation {

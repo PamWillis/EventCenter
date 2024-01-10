@@ -33,6 +33,23 @@ export const GET_ALL_EVENTS = gql`
   }
 `;
 
+export const GET_ALL_USERS = gql`
+  query Users {
+    users {
+      _id
+      username
+      email
+      isAdmin
+      eventCount
+      demoCount
+    }
+  }
+`;
+
 export const useGetAllEvents = () => {
   return useQuery(GET_ALL_EVENTS);
+};
+
+export const useGetAllUsers = () => {
+  return useQuery(GET_ALL_USERS);
 };
