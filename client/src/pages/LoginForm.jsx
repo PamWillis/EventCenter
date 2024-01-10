@@ -58,7 +58,7 @@ const LoginForm = () => {
             value={formState.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -71,7 +71,7 @@ const LoginForm = () => {
             value={formState.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(formState.email && formState.password)}
