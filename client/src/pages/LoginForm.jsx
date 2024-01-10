@@ -1,5 +1,6 @@
 import AuthService from '../utils/auth';
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import SignupForm from './SignupForm';
@@ -9,8 +10,6 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-
-
 
 const LoginForm = () => {
   const [formState, setFormState] = useState({
@@ -102,9 +101,9 @@ const LoginForm = () => {
             Sign Up
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
-            Already have an account?{" "}
-            <a href="#" className="font-medium text-gray-900">
-              Sign In
+            Don't have an accout yet?{" "}
+            <a href="/signup" className="font-medium text-gray-900">
+              Sign Up
             </a>
           </Typography>
         </form>
@@ -112,6 +111,15 @@ const LoginForm = () => {
     </>
   );
 };
-
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/signup" element={<SignupForm />} />
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default LoginForm;
