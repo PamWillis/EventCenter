@@ -1,6 +1,6 @@
 import AuthService from '../utils/auth';
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+// import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import { useNavigate } from 'react-router-dom';
@@ -76,64 +76,80 @@ const SignupForm = () => {
 
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      {/* <form noValidate validated={validated} onSubmit={handleFormSubmit}> */}
         {/* show alert if server response is bad */}
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+        {/* <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
-        </Alert>
+        </Alert> */}
 
-        <Form.Group className='mb-3'>
-          <Form.Label htmlFor='username'>Username</Form.Label>
-          <Form.Control
+{/* Username Form */}
+
+        <form className='text-center m-10 bg-gray-400 p-5 rounded-lg shadow-xl'>
+          <label className='m-5 text-lg font-bold' htmlFor='username'>Username:</label>
+          <input
             type='text'
-            placeholder='Your username'
+            placeholder=' Your username'
             name='username'
             onChange={handleInputChange}
             value={formState.username}
             required
           />
-          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
-        </Form.Group>
+        {/* </form> */}
 
-        <Form.Group className='mb-3'>
-          <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
+{/* Email Form */}
+
+        {/* <form className='m-10 text-center'> */}
+        <div className='m-3'>
+          <label htmlFor='email' className='m-5 text-lg font-bold'>Email:</label>
+          <input
             type='email'
-            placeholder='Your email address'
+            placeholder=' Your email address'
             name='email'
             onChange={handleInputChange}
             value={formState.email}
             required
           />
-          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
-        </Form.Group>
+          </div>
+        {/* </form> */}
 
-        <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
+        {/* Password Form */}
+
+        {/* <form className='m-5 text-center'> */}
+        <div className='m-3'>
+          <label className='m-5 text-lg font-bold' htmlFor='password'>Password:</label>
+          <input
             type='password'
-            placeholder='Your password'
+            placeholder=' Your password'
             name='password'
             onChange={handleInputChange}
             value={formState.password}
             required
           />
-          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
-        </Form.Group>
+          </div>
 
-        <Button
+{/* Submit Button */}
+
+<div className='flex justify-center'>
+        <button
           disabled={!(formState.username && formState.email && formState.password)}
           type='submit'
           variant='success'
+          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5'
         >
           Submit
-        </Button>
-      </Form>
+        </button>
+        </div>
+        </form>
+
+      {/* </form> */}
+
+      {/* ERROR */}
+
       {error && (
         <div className="my-3 p-3 bg-danger text-white">
           {error.message}
         </div>
-      )}
+      )};
     </>
   );
 };
