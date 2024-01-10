@@ -10,6 +10,8 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
+import { ThemeProvider } from "@material-tailwind/react";
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,9 +40,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <ThemeProvider>
       <Navbar />
       <Outlet />
       <Footer />
+      </ThemeProvider>
     </ApolloProvider>
   );
 }
