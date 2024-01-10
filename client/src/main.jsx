@@ -9,7 +9,7 @@ import SignupForm from './pages/SignupForm'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Events from './pages/Events'
-import Vendors from './pages/Vendors';
+import Vendors from './pages/Vendors'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +40,8 @@ const router = createBrowserRouter([
     ]
   }
 ]);
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />

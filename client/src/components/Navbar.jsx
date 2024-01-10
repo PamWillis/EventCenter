@@ -1,30 +1,43 @@
-// import { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-// import SignUpForm from '../src/pages/SignupForm';
-// import LoginForm from '../src/pages/LoginForm';
-import React from 'react';
-
-
-import AuthService from '..//utils/auth';
+import React, { useState } from 'react';
 
 const Navbar = () => {
-  return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-white font-bold text-3xl">EventCenter</div>
-        
-        {/* Navigation links */}
-        <ul className="flex space-x-4">
-          <li><a href="/" className="text-white hover:text-gray-300">Home</a></li>
-          <li><a href="../AboutUs" className="text-white hover:text-gray-300">About</a></li>
-          {/* Alan did this one :) ^^^ */}
-          <li><a href="../Events" className="text-white hover:text-gray-300">Events</a></li>
-          <li><a href="../Vendors" className="text-white hover:text-gray-300">Vendors</a></li>
-          <li><a href="../login" className="text-white hover:text-gray-300">Login</a></li>
 
-        </ul>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    };
+
+  return (
+    <nav className="bg-gray-800 py-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <div>
+          <a href="/" className="text-white text-lg font-semibold">EventCenter</a>
+        </div>
+        <div className="hidden md:flex items-center space-x-4">
+          <a href="/" className="text-white">Home</a>
+          <a href="../AboutUs" className="text-white">About Us</a>
+          <a href="../Events" className="text-white">Events</a>
+          <a href="../Vendors" className="text-white">Vendors</a>
+          <a href="../login" className="text-white">Login/Signup</a>
+
+        </div>
+        <div className="md:hidden">
+          <button onClick={toggleMenu} id='mobile-menu-toggle' className="text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div className='md:hidden'>
+      <div className={isMenuOpen ? '' : 'hidden'} id="mobile-menu">
+        <a href="/" className="block py-2 px-4 text-sm text-white">Home</a>
+        <a href="../AboutUs" className="block py-2 px-4 text-sm text-white">About Us</a>
+        <a href="../Events" className="block py-2 px-4 text-sm text-white">Events</a>
+        <a href="../Vendors" className="block py-2 px-4 text-sm text-white">Vendors</a>
+        <a href="../login" className="block py-2 px-4 text-sm text-white">Login/Signup</a>
+      </div>
       </div>
     </nav>
   );

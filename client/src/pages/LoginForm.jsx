@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import SignupForm from './SignupForm';
 
 
 const LoginForm = () => {
@@ -57,7 +58,7 @@ const LoginForm = () => {
             value={formState.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -70,7 +71,7 @@ const LoginForm = () => {
             value={formState.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
         <Button
           disabled={!(formState.email && formState.password)}
@@ -84,8 +85,11 @@ const LoginForm = () => {
           {error.message}
         </div>
       )}
+      <h1>Join Our Network of Vendors!</h1>
+      <SignupForm />
     </>
   );
 };
+
 
 export default LoginForm;

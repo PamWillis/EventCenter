@@ -92,7 +92,7 @@ const SignupForm = () => {
             value={formState.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -105,7 +105,7 @@ const SignupForm = () => {
             value={formState.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -118,7 +118,7 @@ const SignupForm = () => {
             value={formState.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'></Form.Control.Feedback>
         </Form.Group>
 
         <Button
