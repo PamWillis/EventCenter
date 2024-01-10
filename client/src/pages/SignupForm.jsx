@@ -103,7 +103,7 @@ const SignupForm = () => {
                 className: "before:content-none after:content-none",
               }}
               required
-              minlength="3"
+              minLength="3"
               pattern="[A-Za-z]+"
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -146,6 +146,7 @@ const SignupForm = () => {
             fullWidth
             disabled={!(formState.username && formState.email && formState.password)}
             type='submit'
+            onClick={handleFormSubmit}
             variant='gradient'
           >
             Sign Up

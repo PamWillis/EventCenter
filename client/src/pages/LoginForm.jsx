@@ -98,7 +98,7 @@ const LoginForm = () => {
             type='submit'
             variant='gradient'
           >
-            Sign Up
+            Log in
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
             Don't have an accout yet?{" "}
