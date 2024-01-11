@@ -46,13 +46,6 @@ const resolvers = {
         throw new Error('Failed to fetch users from event');
       }
     }
-    demosFromAllUsers: async () => {
-      try {
-        return await Demo.find();
-      } catch (error) {
-        throw new Error('Failed to fetch demos');
-      }
-    },
   },
 
 
