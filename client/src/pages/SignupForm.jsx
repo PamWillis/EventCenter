@@ -84,11 +84,11 @@ const SignupForm = () => {
 
         {/* Signup Header */}
 
-        <Typography className='mt-10 text-center font-semibold'>
-          <h1 className='text-gray-900'>Sign Up</h1>
-          <Typography className='m-5 text-lg font-bold' htmlFor='username'>
-            Nice to meet you! Enter your details to register.
-          </Typography>
+        <Typography className='text-2xl mt-10 text-center font-semibold'>
+          Sign Up
+        </Typography>
+        <Typography className='m-5 text-lg font-bold text-center mb-10' htmlFor='username'>
+          Nice to meet you! Enter your details to register.
         </Typography>
 
         {/* Signup Form */}
