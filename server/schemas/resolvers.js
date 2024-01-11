@@ -46,7 +46,15 @@ const resolvers = {
         throw new Error('Failed to fetch users from event');
       }
     }
+    demosFromAllUsers: async () => {
+      try {
+        return await Demo.find();
+      } catch (error) {
+        throw new Error('Failed to fetch demos');
+      }
+    },
   },
+
 
   Mutation: {
     addUser: async (parent, { username, email, password, isAdmin }) => {
