@@ -56,8 +56,6 @@ const LoginForm = () => {
 
   return (
     <>
-      
-
         <Card>
 
           {/* Login Header */}
@@ -109,6 +107,7 @@ const LoginForm = () => {
             fullWidth
             disabled={!(formState.username && formState.email && formState.password)}
             type='submit'
+            onClick={handleFormSubmit}
             variant='gradient'
             color='blue'
           >
