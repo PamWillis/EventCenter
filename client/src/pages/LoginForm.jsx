@@ -105,7 +105,7 @@ const LoginForm = () => {
             <Button
               className="mt-6"
               fullWidth
-              disabled={!(formState.username && formState.email && formState.password)}
+              disabled={!(formState.email && formState.password)}
               type='submit'
               onClick={handleFormSubmit}
               variant='gradient'
