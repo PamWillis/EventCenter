@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div className="">
             <div className="bottom-0 flex-1">
-                <div className="text-center w-screen bg-gray-800 py-3 text-white font-serif text-xl/8">Look at us, coming together, at the Event Center!</div>
+                <div className="text-center w-screen bg-gray-800 py-3 text-white font-serif text-xl/8">Look at us, coming together, at the <a href="/" style={{color: "white"}}>EventCenter!</a></div>
                 {/* Navigation links */}
                 <ul className="flex justify-center space-x-3 bg-gray-800 py-4">
                     <li><a href="../AboutUs" className="text-white hover:text-orange-500 font-serif text-xl/8">Pam</a></li>

@@ -56,83 +56,34 @@ const LoginForm = () => {
 
   return (
     <>
-      <h1 className=' m-5 text-center font-semibold rounded'>Login to Your Profile!</h1>
+      
 
-      {/* Email submit form */}
+        <Card>
 
-      <form className='text-center m-10 bg-gray-400 p-5 rounded-lg shadow-xl' onSubmit={handleFormSubmit}>
-        <div className='m-3'>
-          <label htmlFor='email' className='m-5 text-lg font-bold'>Email:</label>
-          <input
-            type='text'
-            placeholder=' Your email'
-            name='email'
-            onChange={handleInputChange}
-            value={formState.email}
-            required
-          />
-        </div>
-      {/* </form> */}
+          {/* Login Header */}
 
-      {/* Password submit form */}
-
-      {/* <form className='m-5 text-center'> */}
-        <label htmlFor='password' className='m-5 text-lg font-bold'>Password:</label>
-        <input
-          type='password'
-          placeholder=' Your password'
-          name='password'
-          onChange={handleInputChange}
-          value={formState.password}
-          required
-        />
-        <div type='invalid'></div>
-      {/* </form> */}
-
-      {/* Submit button */}
-      <div className='flex justify-center'>
-        <button
-          disabled={!(formState.email && formState.password)}
-          type='submit'
-          variant='success'
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5'>
-          Login
-        </button>
-      </div>
-      </form>
-
-      {/* ERROR */}
-
-      {error && (
-        <div className="my-3 p-3 bg-danger text-white">
-          {error.message}
-        </div>
-      )}
-
-      <h1 className='mt-10 text-center font-semibold'>Join Our Network of Vendors!</h1>
-
-      {/* Rendered Signup Form from 'pages/SignUpForm' */}
-      <SignupForm />
-
-        <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Log In
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
+        <Typography className='mt-10 text-center font-semibold'>
+          <h1 className='text-gray-900'>Log In</h1>
+          <Typography className="m-5 text-lg font-bold' htmlFor='username'" htmlFor='username'>
           Enter to create events or sign up to be a vendor
         </Typography>
-        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+        </Typography>
+
+        {/* Login Form */}
+        
+        <div className="flex justify-center">
+        <form className="text-center mb-10 bg-gray-400 p-5 rounded-lg shadow-2xl">
           <div className="mb-1 flex flex-col gap-6">
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Email
             </Typography>
             <Input
               size="lg"
-              placeholder="Enter your name"
+              placeholder="Enter your Email"
               value={formState.email}
               onChange={handleInputChange}
               name="email"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -147,7 +98,7 @@ const LoginForm = () => {
               value={formState.password}
               onChange={handleInputChange}
               name="password"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -159,16 +110,18 @@ const LoginForm = () => {
             disabled={!(formState.username && formState.email && formState.password)}
             type='submit'
             variant='gradient'
+            color='blue'
           >
             Log in
           </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
-            Don't have an accout yet?{" "}
+          <Typography color="black" className="mt-4 text-center font-normal">
+            Don't have an account yet?{" "}
             <a href="/signup" className="font-medium text-gray-900">
               Sign Up
             </a>
           </Typography>
         </form>
+        </div>
       </Card>
     </>
   );
