@@ -13,10 +13,10 @@ import {
 
 const LoginForm = () => {
   const [formState, setFormState] = useState({
-    email: '', 
+    email: '',
     password: '',
   });
-  const [validated, setValidated] = useState(false); 
+  const [validated, setValidated] = useState(false);
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
@@ -32,7 +32,7 @@ const LoginForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+console.log("hello")
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -52,8 +52,9 @@ const LoginForm = () => {
 
   return (
     <>
-        <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
+      <Card color="transparent" shadow={false} className="flex justify-center items-center p-10">
+        <div className="rounded-lg shadow-2xl p-4">
+        <Typography variant="h4" color="blue-gray" className="font-Bree text-cyan-500">
           Log In
         </Typography>
         <Typography color="gray" className="mt-1 font-normal">
@@ -74,6 +75,7 @@ const LoginForm = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+           
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Password
@@ -89,24 +91,28 @@ const LoginForm = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+        
             />
           </div>
           <Button
-            className="mt-6"
+            className="mt-6 bg-cyan-500 text-white"
             fullWidth
-            disabled={!(formState.username && formState.email && formState.password)}
+            disabled={!(formState.email && formState.password)}
             type='submit'
+            onClick={handleFormSubmit}
             variant='gradient'
+            
           >
             Log in
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
-            Don't have an accout yet?{" "}
-            <a href="/signup" className="font-medium text-gray-900">
+            Don't have an account yet?&nbsp;&nbsp;
+            <a href="/signup" className="font-bold text-green-500 underline">
               Sign Up
             </a>
           </Typography>
         </form>
+        </div>
       </Card>
     </>
   );

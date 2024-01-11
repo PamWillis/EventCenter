@@ -80,8 +80,9 @@ const SignupForm = () => {
 
   return (
     <>
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
+      <Card color="white" className="flex justify-center items-center p-10">
+        <div className="rounded-lg shadow-2xl p-4">
+        <Typography variant="h4" color="blue-gray" className="font-Bree text-green-500">
           Sign Up
         </Typography>
         <Typography color="gray" className="mt-1 font-normal">
@@ -142,7 +143,7 @@ const SignupForm = () => {
             />
           </div>
           <Button
-            className="mt-6"
+            className="mt-6 bg-green-600 text-white"
             fullWidth
             disabled={!(formState.username && formState.email && formState.password)}
             type='submit'
@@ -152,12 +153,13 @@ const SignupForm = () => {
             Sign Up
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
-            Already have an account?{" "}
-            <a href="/login" className="font-medium text-gray-900">
+            Already have an account?&nbsp;&nbsp;
+            <a href="/login" className="font-bold text-cyan-500 underline">
               Log In
             </a>
           </Typography>
         </form>
+        </div>
       </Card>
     </>
   );
