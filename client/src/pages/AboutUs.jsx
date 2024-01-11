@@ -14,29 +14,23 @@ const AboutUs = () => {
         {/* Row 1 */}
         <div className="text-center">
           <img src={daveImage} alt="Dave" className="w-full" />
-          <p className="mt-2">Dave</p>
         </div>
         <div className="text-center">
           <img src={dave2Image} alt="Dave2" className="w-full" />
-          <p className="mt-2">Dave2</p>
         </div>
         <div className="text-center">
           <img src={josiahImage} alt="Josiah" className="w-full" />
-          <p className="mt-2">Josiah</p>
         </div>
         
         {/* Row 2 */}
         <div className="text-center">
           <img src={alanImage} alt="Alan" className="w-full" />
-          <p className="mt-2">Alan</p>
         </div>
         <div className="text-center">
           <img src={chrisImage} alt="Chris" className="w-full" />
-          <p className="mt-2">Chris</p>
         </div>
         <div className="text-center">
           <img src={pamImage} alt="Pam" className="w-full" />
-          <p className="mt-2">Pam</p>
         </div>
       </div>
     </div>
