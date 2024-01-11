@@ -66,6 +66,7 @@ const resolvers = {
     }
   },
 
+
   Mutation: {
     addUser: async (parent, { username, email, password, isAdmin }) => {
       // Create a user
