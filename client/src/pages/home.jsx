@@ -41,7 +41,7 @@ export default function Home() {
 
         {/* Color Block at the bottom with hover effect */}
         <div className="absolute bottom-0 w-full flex">
-          <Link to="/CraftsmenSymposium" className="w-full h-24 flex justify-center items-center bg-[#0dafec] hover:opacity-75">
+          <Link to="/Events" className="w-full h-24 flex justify-center items-center bg-[#0dafec] hover:opacity-75">
             <p className="text-white text-xl font-bold">CRAFTSMEN SYMPOSIUM</p>
           </Link>
         </div>
