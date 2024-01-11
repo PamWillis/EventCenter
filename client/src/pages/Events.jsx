@@ -8,7 +8,7 @@ const Events = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const { allEvents } = data;
+  const allEvents = data?.eventsFromAllUsers || [];
 
   return (
     <div>

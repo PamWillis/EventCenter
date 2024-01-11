@@ -40,8 +40,8 @@ export const GET_ALL_USERS = gql`
       username
       email
       isAdmin
-      eventCount
-      demoCount
+      savedDemos
+      savedEvents
     }
   }
 `;
