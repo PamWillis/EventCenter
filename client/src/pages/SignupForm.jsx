@@ -81,159 +81,98 @@ const SignupForm = () => {
 
   return (
     <>
-      {/* <form noValidate validated={validated} onSubmit={handleFormSubmit}> */}
-        {/* show alert if server response is bad */}
-        {/* <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
-        </Alert> */}
 
-{/* Username Form */}
 
-        <form className='text-center m-10 bg-gray-400 p-5 rounded-lg shadow-xl'>
-          <label className='m-5 text-lg font-bold' htmlFor='username'>Username:</label>
-          <input
-            type='text'
-            placeholder=' Your username'
-            name='username'
-            onChange={handleInputChange}
-            value={formState.username}
-            required
-          />
-        {/* </form> */}
+      <Card>
 
-{/* Email Form */}
+        {/* Signup Header */}
 
-        {/* <form className='m-10 text-center'> */}
-        <div className='m-3'>
-          <label htmlFor='email' className='m-5 text-lg font-bold'>Email:</label>
-          <input
-            type='email'
-            placeholder=' Your email address'
-            name='email'
-            onChange={handleInputChange}
-            value={formState.email}
-            required
-          />
-          </div>
-        {/* </form> */}
-
-        {/* Password Form */}
-
-        {/* <form className='m-5 text-center'> */}
-        <div className='m-3'>
-          <label className='m-5 text-lg font-bold' htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            placeholder=' Your password'
-            name='password'
-            onChange={handleInputChange}
-            value={formState.password}
-            required
-          />
-          </div>
-
-{/* Submit Button */}
-
-<div className='flex justify-center'>
-        <button
-          disabled={!(formState.username && formState.email && formState.password)}
-          type='submit'
-          variant='success'
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5'
-        >
-          Submit
-        </button>
-        </div>
-        </form>
-
-      {/* </form> */}
-
-      {/* ERROR */}
-
-      {error && (
-        <div className="my-3 p-3 bg-danger text-white">
-          {error.message}
-        </div>
-      )};
-
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Sign Up
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
-          Nice to meet you! Enter your details to register.
-        </Typography>
-        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-          <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              User Name
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="Enter your name"
-              value={formState.username}
-              onChange={handleInputChange}
-              name="username"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              required
-              minLength="3"
-              pattern="[A-Za-z]+"
-            />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Your Email
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="Enter your email"
-              value={formState.email}
-              onChange={handleInputChange}
-              name="email"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              required
-              pattern="/^[\w-]+(\.[\w-]+)*@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z]{2,}$/"
-            />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Password (Minimum 8 characters)
-            </Typography>
-            <Input
-              type="password"
-              size="lg"
-              placeholder="********"
-              value={formState.password}
-              onChange={handleInputChange}
-              name="password"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              required
-              minLength="8"
-
-            />
-          </div>
-          <Button
-            className="mt-6"
-            fullWidth
-            disabled={!(formState.username && formState.email && formState.password)}
-            type='submit'
-            onClick={handleFormSubmit}
-            variant='gradient'
-          >
-            Sign Up
-          </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
-            Already have an account?{" "}
-            <a href="/login" className="font-medium text-gray-900">
-              Log In
-            </a>
+        <Typography className='mt-10 text-center font-semibold'>
+          <h1 className='text-gray-900'>Sign Up</h1>
+          <Typography className='m-5 text-lg font-bold' htmlFor='username'>
+            Nice to meet you! Enter your details to register.
           </Typography>
-        </form>
+        </Typography>
+
+        {/* Signup Form */}
+
+        <div className="flex justify-center">
+          <form className='text-center mb-10 bg-gray-400 p-5 rounded-lg shadow-2xl' >
+            <div className="mb-1 flex flex-col gap-6">
+              <Typography variant="h6" color="blue-gray" className="-mb-4">
+                User Name
+              </Typography>
+              <Input
+                size="md"
+                placeholder="Enter your username"
+                value={formState.username}
+                onChange={handleInputChange}
+                name="username"
+                className="bg-white"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+                
+                required
+                minLength="3"
+                pattern="[A-Za-z]+"
+              />
+              <Typography variant="h6" color="blue-gray" className="-mb-3">
+                Your Email
+              </Typography>
+              <Input
+                size="lg"
+                placeholder="Enter your email"
+                value={formState.email}
+                onChange={handleInputChange}
+                name="email"
+                className="bg-white"
+                
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+                required
+                pattern="/^[\w-]+(\.[\w-]+)*@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z]{2,}$/"
+              />
+              <Typography variant="h6" color="blue-gray" className="mt-3">
+                Password (Minimum 8 characters)
+              </Typography>
+              <Input
+                type="password"
+                size="lg"
+                placeholder="********"
+                value={formState.password}
+                onChange={handleInputChange}
+                name="password"
+                className="bg-white"
+                
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+                required
+                minLength="8"
+
+              />
+            </div>
+            <Button
+              className="mt-6"
+              fullWidth
+              disabled={!(formState.username && formState.email && formState.password)}
+              type='submit'
+              onClick={handleFormSubmit}
+              variant='gradient'
+              color='blue'
+            >
+              Sign Up
+            </Button>
+            <Typography color='black' className="mt-4 text-center font-normal">
+              Already have an account?{" "}
+              <a href="/login" className="font-medium text-gray-900">
+                Log In
+              </a>
+            </Typography>
+          </form>
+        </div>
       </Card>
     </>
   );
