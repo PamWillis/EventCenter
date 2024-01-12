@@ -1,6 +1,6 @@
 import React from 'react';
 import Widget from '../components/Widget';
-import './App.css';
+import '../App.css';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { SAVE_EVENT } from '../utils/mutations';
@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-const EventForm = () => {
+const EventCreateForm = () => {
   const [formState, setFormState] = useState({ EventInput: '' });
   const [validated, setValidated] = useState(false);
   const [saveEvents, { error, data }] = useMutation(SAVE_EVENT);
@@ -136,17 +136,17 @@ const EventForm = () => {
               <div>
                 <Widget />
               </div>
-              </div>
-              <Button
-                className="mt-6 bg-cyan-500 text-white"
-                fullWidth
-                disabled={!(formState.EventInput)}
-                type='submit'
-                variant='gradient'
-                onChange={handleEventSubmit}
-              >
-                CREATE EVENT
-              </Button>
+            </div>
+            <Button
+              className="mt-6 bg-cyan-500 text-white"
+              fullWidth
+              disabled={!(formState.EventInput)}
+              type='submit'
+              variant='gradient'
+              onChange={handleEventSubmit}
+            >
+              CREATE EVENT
+            </Button>
           </form>
         </div>
       </Card>
