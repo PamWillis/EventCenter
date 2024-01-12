@@ -40,6 +40,9 @@ const Navbar = () => {
           </a>
           {AuthService.loggedIn() ? (
             <>
+              <a href="../EventCreateForm" className="block py-2 px-4 text-sm text-white">
+                EventCreateForm
+              </a>
               <button onClick={handleLogout} className="text-white cursor-pointer">
                 Logout
               </button>
@@ -73,9 +76,14 @@ const Navbar = () => {
             Vendors
           </a>
           {AuthService.loggedIn() ? (
-            <button onClick={handleLogout} className="block py-2 px-4 text-sm text-white cursor-pointer">
-              Logout
-            </button>
+            <>
+              <a href="../EventCreateForm" className="block py-2 px-4 text-sm text-white">
+                EventCreateForm
+              </a>
+              <button onClick={handleLogout} className="block py-2 px-4 text-sm text-white cursor-pointer">
+                Logout
+              </button>
+            </>
           ) : (
             <a href="../login" className="block py-2 px-4 text-sm text-white" onClick={handleLoginSignupClick}>
               Login/Signup
