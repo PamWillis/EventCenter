@@ -119,37 +119,6 @@ const LoginForm = () => {
                 Sign Up
               </a>
             </Typography>
-
-            <Input
-              type="password"
-              size="lg"
-              placeholder="********"
-              value={formState.password}
-              onChange={handleInputChange}
-              name="password"
-              className="bg-white"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-            />
-          </div>
-          <Button
-            className="mt-6"
-            fullWidth
-            disabled={!(formState.email && formState.password)}
-            type='submit'
-            variant='gradient'
-            color='blue'
-          >
-            Log in
-          </Button>
-          <Typography color="black" className="mt-4 text-center font-normal">
-            Don't have an account yet?{" "}
-            <a href="/signup" className="font-medium text-gray-900">
-              Sign Up
-            </a>
-          </Typography>
-        </form>
           </form>
         </div>
       </Card>
