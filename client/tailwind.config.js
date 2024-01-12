@@ -18,6 +18,13 @@ module.exports = withMT({
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
+    },
+    boxShadow: {
+      sm: "0 2px 4px 0 rgb(0 0 0 / 0.05)",
+      // rest of the box shadow values
+    },
+    fontFamily: {
+      Bree: ['Bree Serif', 'serif']
     }
   },
   plugins: [],
