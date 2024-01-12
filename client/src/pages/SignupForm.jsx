@@ -85,60 +85,9 @@ const SignupForm = () => {
         <Typography variant="h4" color="blue-gray" className="font-Bree text-green-500">
           Sign Up
         </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
+        <Typography className='m-5 text-lg font-bold text-center mb-10' htmlFor='username'>
           Nice to meet you! Enter your details to register.
         </Typography>
-        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-          <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              User Name
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="Enter your name"
-              value={formState.username}
-              onChange={handleInputChange}
-              name="username"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              required
-              minLength="3"
-              pattern="[A-Za-z]+"
-            />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Your Email
-            </Typography>
-            <Input
-              size="lg"
-              placeholder="Enter your email"
-              value={formState.email}
-              onChange={handleInputChange}
-              name="email"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              required
-              pattern="/^[\w-]+(\.[\w-]+)*@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z]{2,}$/"
-            />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Password (Minimum 8 characters)
-            </Typography>
-            <Input
-              type="password"
-              size="lg"
-              placeholder="********"
-              value={formState.password}
-              onChange={handleInputChange}
-              name="password"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              labelProps={{
-                className: "before:content-none after:content-none",
-              }}
-              required
-              minLength="8"
 
             />
           </div>

@@ -20,6 +20,7 @@ const LoginForm = () => {
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
@@ -30,6 +31,7 @@ const LoginForm = () => {
   };
 
   // submit form
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 console.log("hello")
@@ -44,10 +46,12 @@ console.log("hello")
     }
 
     // clear form values
+
     setFormState({
       email: '',
       password: '',
     });
+
   };
 
   return (
@@ -57,7 +61,7 @@ console.log("hello")
         <Typography variant="h4" color="blue-gray" className="font-Bree text-cyan-500">
           Log In
         </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
+        <Typography className="m-5 text-lg font-bold text-center mb-10'" htmlFor='username'>
           Enter to create events or sign up to be a vendor
         </Typography>
         <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
@@ -80,6 +84,7 @@ console.log("hello")
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Password
             </Typography>
+
             <Input
               type="password"
               size="lg"
@@ -87,7 +92,7 @@ console.log("hello")
               value={formState.password}
               onChange={handleInputChange}
               name="password"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
