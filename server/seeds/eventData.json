@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Summer Music Festival",
+        "date": "2024-07-20",
+        "time": "15:00",
+        "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
+        "image": "path/to/summer-music-festival.jpg"
+        },
+    {
+        "title": "Tech Conference 2024",
+        "date": "2024-04-20",
+        "time": "09:00",
+        "description": "A conference showcasing the latest advancements in technology, featuring keynote speakers and workshops.",
+        "image": "path/to/tech-conference.jpg"
+        }
+]
