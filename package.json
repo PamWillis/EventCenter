@@ -20,6 +20,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "react-modal": "^3.16.1"
   }
 }
