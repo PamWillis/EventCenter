@@ -12,8 +12,8 @@ db.once('open', async () => {
     await cleanDB('Demo', 'demos');
     await cleanDB('User', 'users');
 
-    await User.create(userData)  
-
+    await User.create(userData); 
+    await Demo.create(demoData);
     await Event.insertMany(eventData);
   } catch (err) {
     console.error(err);

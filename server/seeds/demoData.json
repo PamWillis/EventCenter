@@ -1,5 +1,18 @@
 [
     {
-        
+        "demotitle": "Introduction to Node.js",
+        "date": "2024-03-15", 
+        "time": "10:00"
+    },
+    {
+        "demotitle": "Advanced React Techniques",
+        "date": "2024-04-20",
+        "time": "14:00"
+    },
+    {
+        "demotitle": "Database Optimization Strategies",
+        "date": "2024-05-05",
+        "time": "16:00"
+
     }
 ]
