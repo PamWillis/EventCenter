@@ -1,8 +1,8 @@
 [
     {
-      "username": "Brian Kernighan",
-      "email": "bkernighan@techfriends.dev",
-      "password": "password01"
+      "username": "test",
+      "email": "test@test.test",
+      "password": "test"
     },
     {
       "username": "Max Kanat-Alexander",
