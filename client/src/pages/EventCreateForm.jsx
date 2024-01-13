@@ -4,6 +4,7 @@ import '../App.css';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { SAVE_EVENT } from '../utils/mutations';
+
 import {
   Card,
   Input,
@@ -12,29 +13,35 @@ import {
 } from "@material-tailwind/react";
 
 const EventCreateForm = () => {
-  const [formState, setFormState] = useState({ EventInput: '' });
+  const [formState, setFormState] = useState({
+    title: '',
+    description: '',
+    date: '',
+    time: '',
+    image: ''
+  });
+
   const [validated, setValidated] = useState(false);
   const [saveEvents, { error, data }] = useMutation(SAVE_EVENT);
-
+const [imageState, setImageState] = useState('');
 
   // update state based on form input changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState((prevFormState) => ({
       ...prevFormState,
-      EventInput: value,
+      [name]: value,
     }));
   };
+
 
   // submit form
   const handleEventSubmit = async (event) => {
     event.preventDefault();
 
-    if (!formState.EventInput) {
-      return false;
-    }
 
     try {
+      setFormState(prevFormState => ({...prevFormState, image: imageState}))
       await saveEvents({
         variables: { ...formState },
       });
@@ -45,6 +52,8 @@ const EventCreateForm = () => {
       console.error(e);
     }
   };
+
+  const handleImageSelect = (image) => setImageState(image);
 
   return (
     <>
@@ -64,7 +73,7 @@ const EventCreateForm = () => {
               <Input
                 size="lg"
                 placeholder="Enter the name of your event"
-                value={formState.title}
+                value={formState.title || ''} 
                 onChange={handleInputChange}
                 name="title"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -79,7 +88,7 @@ const EventCreateForm = () => {
               <Input
                 size="lg"
                 placeholder="Description"
-                value={formState.description}
+                value={formState.description || ''}
                 onChange={handleInputChange}
                 name="description"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -92,9 +101,10 @@ const EventCreateForm = () => {
                 Date
               </Typography>
               <Input
+              type="date"
                 size="lg"
                 placeholder="Example: 01/01/2025"
-                value={formState.date}
+                value={formState.date || ''}
                 onChange={handleInputChange}
                 name="date"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -107,9 +117,10 @@ const EventCreateForm = () => {
                 Time
               </Typography>
               <Input
+              type="time"
                 size="lg"
                 placeholder="Example: 9am-5pm"
-                value={formState.time}
+                value={formState.time || ''}
                 onChange={handleInputChange}
                 name="time"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -118,38 +129,23 @@ const EventCreateForm = () => {
                 }}
                 required
               />
-              <Typography variant="h6" color="blue-gray" className="-mb-3">
-                Image
-              </Typography>
-              <Input
-                size="lg"
-                placeholder="image.png"
-                value={formState.image}
-                onChange={handleInputChange}
-                name="image"
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-                required
-              />
-              <div>
-                <Widget />
-              </div>
+
+              <Widget handleImageSelect={handleImageSelect} />
             </div>
+
             <Button
               className="mt-6 bg-cyan-500 text-white"
               fullWidth
-              disabled={!(formState.EventInput)}
+              disabled={!(formState.title==='' && formState.description==='' && formState.date==='' && formState.time==='' && formState.image==='')}
               type='submit'
               variant='gradient'
-              onChange={handleEventSubmit}
+              onClick={handleEventSubmit}
             >
               CREATE EVENT
             </Button>
           </form>
-        </div>
-      </Card>
+        </div >
+      </Card >
     </>
   );
 };
