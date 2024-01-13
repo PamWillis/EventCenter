@@ -30,8 +30,14 @@ mutation SaveEvent($event: EventInput!) {
     _id
     username
     email
-    password
-    isAdmin
+    savedEvents {
+      _id
+      title
+      date
+      time
+      description
+      image
+    }
   }
 }
 `;
