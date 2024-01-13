@@ -70,7 +70,7 @@ const Widget = ({ handleImageSelect }) => {
         </Typography>
         <img src={url} alt="Uploaded" className="mb-2" />
         {url && (
-          <Typography variant="body2" color="blue-gray">
+          <Typography variant="h3" color="blue-gray">
             Image URL: {url}
           </Typography>
         )}
