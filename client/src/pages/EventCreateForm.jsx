@@ -38,20 +38,26 @@ const [imageState, setImageState] = useState('');
   // submit form
   const handleEventSubmit = async (event) => {
     event.preventDefault();
-
-
     try {
-      setFormState(prevFormState => ({...prevFormState, image: imageState}))
+      const newFormState = { ...formState, image: imageState };
       await saveEvents({
-        variables: { ...formState },
+        variables: { event: newFormState },
       });
-
-      // Clear form values
-      setFormState({ EventInput: '' });
+  
+      // Reset form values to initial state
+      setFormState({
+        title: '',
+        description: '',
+        date: '',
+        time: '',
+        image: ''
+      });
+      setImageState('');
     } catch (e) {
       console.error(e);
     }
   };
+  
 
   const handleImageSelect = (image) => setImageState(image);
 

@@ -1,13 +1,8 @@
 const { GraphQLError } = require('graphql');
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
-require('dotenv').config(); // Load environment variables from .env file
 
-// const secret = process.env.SECRET;
-
-// // set token secret and expiration date
-// const expiration = process.env.EXPIRATION;
-const secret = 'mysecretssshhhhhhh';
-const expiration = '2h';
+const secret = process.env.SECRET;
 
 module.exports = {
   AuthenticationError: new GraphQLError('Could not authenticate user.', {
@@ -31,7 +26,8 @@ module.exports = {
 
       // verify token and get user data out of it
       try {
-        const { data } = jwt.verify(token, secret, { maxAge: expiration });
+        const { data } = jwt.verify(token, secret, { maxAge: process.env.EXPIRATION });
+        // const { data } = jwt.verify(token, secret, { maxAge: expiration });
         req.user = data;
       } catch {
         console.log('Invalid token');
@@ -40,9 +36,10 @@ module.exports = {
       return req;
     },
     signToken: function ({ username, email, _id }) {
+      console.log('Secret:', process.env.SECRET);
       const payload = { username, email, _id };
-
-      return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+      return jwt.sign({ data: payload }, secret, { expiresIn: process.env.EXPIRATION });
+      // return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     },
     logout: function () {
       // Check if localStorage is available (browser environment)
