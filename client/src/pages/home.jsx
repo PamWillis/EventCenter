@@ -28,7 +28,11 @@ export default function Home() {
           </Link>
           
           {/* Block 3 */}
+<<<<<<< HEAD
           <Link to="/Login" className="w-1/3 h-24 flex justify-center items-center bg-[#88192b] hover:opacity-75 text-center p-2">
+=======
+          <Link to="/Signup" className="w-1/3 h-24 flex justify-center items-center bg-[#88192b] hover:opacity-75">
+>>>>>>> 569f759be9d2a18f580f1f52c246178927042c0d
             <p className="text-white text-xl font-bold">SIGN UP NOW</p>
           </Link>
         </div>

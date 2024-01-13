@@ -26,13 +26,15 @@
   ## Contribution 
   
   We're always welcome to proposed improvements, if you see something and wish to help us fix, create a pull request!
+
+  This was created with the assistance of our TA Carl Vega, and many of our tutors.
   
   
   ## Contact Information
   
   ### Pam Willis
 
-pwillis557@gmail.com
+  pwillisop@yahoo.com
   
   https://github.com/PamWillis
   

@@ -1,0 +1,21 @@
+.file-input-container {
+    position: relative;
+  }
+  
+  .custom-file-input {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-bottom: .4em;
+    font-weight: 600;
+    font-size:.8em;
+    background-color: #3490dc; 
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #3490dc;
+  }
+  
+
+  .custom-file-input:hover {
+    background-color: #2779bd;
+  }

@@ -4,9 +4,11 @@ import logoImage from '../assets/home/logo.png';
 import SignUpForm from '../pages/SignupForm';
 import LoginForm from '../pages/LoginForm';
 import AuthService from '../utils/auth';
+import { Button } from '@material-tailwind/react'
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
+  const [activeTab, setActiveTab] = useState('home');
 
   const handleLoginSignupClick = () => {
     setShowModal(true);
@@ -18,13 +20,22 @@ const Navbar = () => {
     // Optionally, redirect or perform additional actions after logout
   };
 
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  }
+
   return (
     <nav className="bg-gray-800 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
+
         {/* Logo */}
+
         <div className="flex items-center">
           <img src={logoImage} alt="Logo" className="h-14 mr-3" />
         </div>
+
+        {/* Nav Links */}
+
         <div className="hidden md:flex items-center space-x-4">
           <a href="/" className="text-white">
             Home
@@ -38,14 +49,21 @@ const Navbar = () => {
           <a href="../Vendors" className="text-white">
             Vendors
           </a>
+
+          {/* EventCreate Form for logged in users */}
+
           {AuthService.loggedIn() ? (
             <>
               <a href="../EventCreateForm" className="block py-2 px-4 text-sm text-white">
                 EventCreateForm
               </a>
-              <button onClick={handleLogout} className="text-white cursor-pointer">
+              <Button 
+              onClick={handleLogout}
+              className="text-white cursor-pointer"
+              variant="text"
+              >              
                 Logout
-              </button>
+              </Button>
             </>
           ) : (
             <a href="../login" className="text-white" onClick={handleLoginSignupClick}>

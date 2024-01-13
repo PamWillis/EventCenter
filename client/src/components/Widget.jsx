@@ -41,39 +41,35 @@ const Widget = ({ handleImageSelect }) => {
     );
   };
 
-
-
   return (
     <div>
       <Card color="transparent" shadow={true}>
         <div className="p-4">
           <Typography variant="h3" color="blue-gray" className="mb-4 text-md">
             Upload your picture to use on the event page
-          </Typography>
-          <Input
-            type="file"
-            onChange={(e) => setImage(e.target.files[0])}
-            className="border border-gray-300 p-2 w-full"
-          />
+          </Typography><div />
+          <div className="file-input-container justify center">
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              id="file-input"
+              className="hidden" // Hide the default file input
+            />
+            <label htmlFor="file-input" className="custom-file-input">
+              CHOOSE FILE FROM YOUR DEVICE
+            </label>
+          </div>
+          <div></div>
+          
           <Button
             onClick={uploadImage}
-
-            className="mt-4 bg-green-500 text-white"
-          >
-            Upload
+            variant="transparent"
+            className="flex items-center justify center gap-3 bg-green-500">
+            Upload Picture
           </Button>
         </div>
       </Card>
       <div className="mt-4">
-        <Typography variant="h6" color="blue-gray" className="mb-2">
-          Uploaded image will be displayed here
-        </Typography>
-        <img src={url} alt="Uploaded" className="mb-2" />
-        {url && (
-          <Typography variant="h3" color="blue-gray">
-            Image URL: {url}
-          </Typography>
-        )}
       </div>
     </div>
   );
