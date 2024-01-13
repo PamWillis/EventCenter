@@ -10,6 +10,7 @@ class AuthService {
   saveEvents() {
     // Return decoded user information
     return this.getProfile();
+    window.location.assign('/Events');
   }
   saveDemos() {
     // Return decoded user information

@@ -66,12 +66,12 @@ const Widget = ({ handleImageSelect }) => {
       </Card>
       <div className="mt-4">
         <Typography variant="h6" color="blue-gray" className="mb-2">
-          Uploaded image will be displayed here
+          {/* Uploaded image will be displayed here */}
         </Typography>
         <img src={url} alt="Uploaded" className="mb-2" />
         {url && (
           <Typography variant="h3" color="blue-gray">
-            Image URL: {url}
+            {/* Image URL: {url} */}
           </Typography>
         )}
       </div>
