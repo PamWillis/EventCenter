@@ -4,6 +4,7 @@ import '../App.css';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { SAVE_EVENT } from '../utils/mutations';
+
 import {
   Card,
   Input,
@@ -12,7 +13,14 @@ import {
 } from "@material-tailwind/react";
 
 const EventCreateForm = () => {
-  const [formState, setFormState] = useState({ EventInput: '' });
+  const [formState, setFormState] = useState({
+    EventInput: '',
+    description: '',
+    date: '',
+    time: '',
+    image: ''
+  });
+
   const [validated, setValidated] = useState(false);
   const [saveEvents, { error, data }] = useMutation(SAVE_EVENT);
 
@@ -22,9 +30,10 @@ const EventCreateForm = () => {
     const { name, value } = event.target;
     setFormState((prevFormState) => ({
       ...prevFormState,
-      EventInput: value,
+      [name]: value,
     }));
   };
+
 
   // submit form
   const handleEventSubmit = async (event) => {
@@ -118,38 +127,23 @@ const EventCreateForm = () => {
                 }}
                 required
               />
-              <Typography variant="h6" color="blue-gray" className="-mb-3">
-                Image
-              </Typography>
-              <Input
-                size="lg"
-                placeholder="image.png"
-                value={formState.image}
-                onChange={handleInputChange}
-                name="image"
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-                required
-              />
-              <div>
-                <Widget />
-              </div>
+
+              <Widget handleImageSelect={handleImageSelect} />
             </div>
+
             <Button
               className="mt-6 bg-cyan-500 text-white"
               fullWidth
               disabled={!(formState.EventInput)}
               type='submit'
               variant='gradient'
-              onChange={handleEventSubmit}
+              onClick={handleEventSubmit}
             >
               CREATE EVENT
             </Button>
           </form>
-        </div>
-      </Card>
+        </div >
+      </Card >
     </>
   );
 };
