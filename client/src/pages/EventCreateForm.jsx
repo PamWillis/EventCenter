@@ -136,7 +136,7 @@ const [imageState, setImageState] = useState('');
             <Button
               className="mt-6 bg-cyan-500 text-white"
               fullWidth
-              disabled={!(formState.title==='' && formState.description==='' && formState.date==='' && formState.time==='' && formState.image==='')}
+              disabled={!(formState.title && formState.description && formState.date && formState.time && imageState)}
               type='submit'
               variant='gradient'
               onClick={handleEventSubmit}
