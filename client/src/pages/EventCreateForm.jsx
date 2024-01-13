@@ -14,7 +14,7 @@ import {
 
 const EventCreateForm = () => {
   const [formState, setFormState] = useState({
-    EventInput: '',
+    title: '',
     description: '',
     date: '',
     time: '',
@@ -23,7 +23,7 @@ const EventCreateForm = () => {
 
   const [validated, setValidated] = useState(false);
   const [saveEvents, { error, data }] = useMutation(SAVE_EVENT);
-
+const [imageState, setImageState] = useState('');
 
   // update state based on form input changes
   const handleInputChange = (event) => {
@@ -39,11 +39,9 @@ const EventCreateForm = () => {
   const handleEventSubmit = async (event) => {
     event.preventDefault();
 
-    if (!formState.EventInput) {
-      return false;
-    }
 
     try {
+      setFormState(prevFormState => ({...prevFormState, image: imageState}))
       await saveEvents({
         variables: { ...formState },
       });
@@ -54,6 +52,8 @@ const EventCreateForm = () => {
       console.error(e);
     }
   };
+
+  const handleImageSelect = (image) => setImageState(image);
 
   return (
     <>
@@ -73,7 +73,7 @@ const EventCreateForm = () => {
               <Input
                 size="lg"
                 placeholder="Enter the name of your event"
-                value={formState.title}
+                value={formState.title || ''} 
                 onChange={handleInputChange}
                 name="title"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -88,7 +88,7 @@ const EventCreateForm = () => {
               <Input
                 size="lg"
                 placeholder="Description"
-                value={formState.description}
+                value={formState.description || ''}
                 onChange={handleInputChange}
                 name="description"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -101,9 +101,10 @@ const EventCreateForm = () => {
                 Date
               </Typography>
               <Input
+              type="date"
                 size="lg"
                 placeholder="Example: 01/01/2025"
-                value={formState.date}
+                value={formState.date || ''}
                 onChange={handleInputChange}
                 name="date"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -116,9 +117,10 @@ const EventCreateForm = () => {
                 Time
               </Typography>
               <Input
+              type="time"
                 size="lg"
                 placeholder="Example: 9am-5pm"
-                value={formState.time}
+                value={formState.time || ''}
                 onChange={handleInputChange}
                 name="time"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -134,7 +136,7 @@ const EventCreateForm = () => {
             <Button
               className="mt-6 bg-cyan-500 text-white"
               fullWidth
-              disabled={!(formState.EventInput)}
+              disabled={!(formState.title==='' && formState.description==='' && formState.date==='' && formState.time==='' && formState.image==='')}
               type='submit'
               variant='gradient'
               onClick={handleEventSubmit}
