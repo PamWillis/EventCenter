@@ -1,53 +1,52 @@
 [
     {
-      "username": "test",
-      "email": "test@test.test",
-      "password": "test"
+      "username": "Nicole",
+      "email": "nicole@gmail.com",
+      "password": "password",
+      "isAdmin": "false",
+      "savedEvents": [
+        {
+            "id": "65a3ff0dd2721ed603e8ecf7",
+            "title": "Cat's Delite",
+            "date": "2024-07-01",
+            "time": "16:30:00",
+            "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
+            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
+        }
+    ]
     },
     {
-      "username": "Max Kanat-Alexander",
-      "email": "mkanatalexander@techfriends.dev",
-      "password": "password02"
+      "username": "Nicole",
+      "email": "nicole@gmail.com",
+      "password": "password",
+      "isAdmin": "false",
+      "savedEvents": [
+        {
+            "id": "65a3ff0dd2721ed603e8ecf7",
+            "title": "Summer Music Festival",
+            "date": "2024-07-25",
+            "time": "16:30:00",
+            "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
+            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
+        }
+    ]
     },
     {
-      "username": "Why The Lucky Stiff",
-      "email": "wtls@techfriends.dev",
-      "password": "password03"
-    },
-    {
-      "username": "Kent Beck",
-      "email": "kbeck@techfriends.dev",
-      "password": "password04"
-    },
-    {
-      "username": "Edward V. Berard",
-      "email": "evberard@techfriends.dev",
-      "password": "password05"
-    },
-    {
-      "username": "Alan Kay",
-      "email": "akay@techfriends.dev",
-      "password": "password06"
-    },
-    {
-      "username": "C.A.R. Hoare",
-      "email": "choare@techfriends.dev",
-      "password": "password07"
-    },
-    {
-      "username": "David Thomas",
-      "email": "dthomas@techfriends.dev",
-      "password": "password08"
-    },
-    {
-      "username": "Donald Knuth",
-      "email": "dknuth@techfriends.dev",
-      "password": "password09"
-    },
-    {
-      "username": "Lernantino",
-      "email": "lernantino@techfriends.dev",
-      "password": "password10"
+      "username": "Nicole",
+      "email": "nicole@gmail.com",
+      "password": "password",
+      "isAdmin": "false",
+      "savedEvents": [
+        {
+            "id": "65a3ff0dd2721ed603e8ecf7",
+            "title": "All Things Cats",
+            "date": "2024-08-01",
+            "time": "16:30:00",
+            "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
+            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
+        }
+    ]
     }
+
   ]
   

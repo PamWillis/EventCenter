@@ -1,6 +1,6 @@
 const db = require('../config/connection');
-const { Event, Demo, User } = require('../models');
-const eventData = require('./eventData.json');
+const { Demo, User } = require('../models');
+
 const demoData = require('./demoData.json');
 const userData = require('./userData.json');
 
@@ -14,7 +14,6 @@ db.once('open', async () => {
 
     await User.create(userData); 
     await Demo.create(demoData);
-    await Event.insertMany(eventData);
   } catch (err) {
     console.error(err);
     process.exit(1);
