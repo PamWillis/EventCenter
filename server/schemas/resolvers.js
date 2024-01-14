@@ -46,24 +46,19 @@ const resolvers = {
         throw new Error('Failed to fetch users from event');
       }
     },
-    allUsers: async () => {
+    vendorsFromAllEvents: async () => {
       try {
-        const allUsers = await User.find();
-        return allUsers;
+        const events = await Event.find().populate('vendors');
+        const vendors = events.reduce((acc, event) => {
+          acc.push(...event.vendors);
+          return acc;
+        }, []);
+        return vendors;
       } catch (error) {
-        console.error(error);
-        throw new Error('Failed to fetch all users');
+        console.log(error);
+        throw new Error('Failed to fetch vendors from all events');
       }
     },
-    allEvents: async () => {
-      try {
-        const allEvents = await Event.find();
-        return allEvents;
-      } catch (error) {
-        console.error(error);
-        throw new Error('Failed to fetch all events');
-      }
-    }
   },
 
 

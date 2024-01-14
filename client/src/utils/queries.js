@@ -13,3 +13,13 @@ query EventsFromAllUsers {
   }
 }
 `;
+
+export const GET_VENDORS = gql`
+  query VendorsFromAllEvents {
+    vendorsFromAllEvents {
+      _id
+      username
+      // Add other vendor fields as needed
+    }
+  }
+`;
