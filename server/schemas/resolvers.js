@@ -45,6 +45,15 @@ const resolvers = {
       } catch (error) {
         throw new Error('Failed to fetch users from event');
       }
+    },
+    allUsers: async () => {
+      try {
+        const users = await User.find();
+        return users;
+      } catch (error) {
+        console.error(error);
+        throw new Error('Failed to fetch all users');
+      }
     }
   },
 
