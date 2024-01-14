@@ -40,8 +40,8 @@ const Navbar = () => {
           </a>
           {AuthService.loggedIn() ? (
             <>
-              <a href="../EventCreateForm" className="block py-2 px-4 text-sm text-white">
-                EventCreateForm
+              <a href="../EventCreateForm" cclassName="text-white">
+                Create an Event
               </a>
               <button onClick={handleLogout} className="text-white cursor-pointer">
                 Logout
