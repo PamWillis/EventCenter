@@ -20,11 +20,11 @@ import {
     return (
       <div className="p-4">
         <div className="flex flex-wrap">
-          {data && data.vendorsFromAllEvents.map(user => (
-            <Card key={user._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
+          {data && data.vendorsFromAllEvents.map(vendor => (
+            <Card key={vendor._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
               <CardHeader color="blueGray">
                 <Typography variant="h3" color="cyan">
-                  {user.username} 
+                  {vendor.username} 
                 </Typography>
               </CardHeader>
               {/* ... (Render other vendor details) */}
