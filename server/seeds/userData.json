@@ -8,45 +8,29 @@
         {
             "id": "65a3ff0dd2721ed603e8ecf7",
             "title": "Cat's Delite",
-            "date": "2024-07-01",
+            "date": "2024-03-15",
             "time": "16:30:00",
-            "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
+            "description": "Spoil your feline friend. See various vendors with toys, homefood and catnip",
             "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
-        }
-    ]
-    },
-    {
-      "username": "Nicole",
-      "email": "nicole@gmail.com",
-      "password": "password",
-      "isAdmin": "false",
-      "savedEvents": [
+        },
         {
-            "id": "65a3ff0dd2721ed603e8ecf7",
-            "title": "Summer Music Festival",
-            "date": "2024-07-25",
-            "time": "16:30:00",
-            "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
-            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
-        }
-    ]
-    },
-    {
-      "username": "Nicole",
-      "email": "nicole@gmail.com",
-      "password": "password",
-      "isAdmin": "false",
-      "savedEvents": [
-        {
-            "id": "65a3ff0dd2721ed603e8ecf7",
-            "title": "All Things Cats",
-            "date": "2024-08-01",
-            "time": "16:30:00",
-            "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
-            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
-        }
-    ]
+          "id": "65a3ff0dd2721ed603e8ecf7",
+          "title": "Rose Garden",
+          "date": "2024-08-01",
+          "time": "16:30:00",
+          "description": "Explore the magnificent roses and how they can be cared for.",
+          "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/pgripjuogjbezlzcsrmr.png"
+      },
+      {
+        "id": "65a3ff0dd2721ed603e8ecf7",
+        "title": "Music Festival",
+        "date": "2024-07-01",
+        "time": "16:30:00",
+        "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
+        "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/xisw3vwgkm6eytv1rqn8.png"
     }
 
+    ]
+    }
   ]
   
