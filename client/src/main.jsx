@@ -12,6 +12,7 @@ import Events from './pages/Events'
 import Vendors from './pages/Vendors'
 import EventCreateForm from './pages/EventCreateForm'
 
+
 const router = createBrowserRouter([
   {
     path: "/",
