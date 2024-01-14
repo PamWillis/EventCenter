@@ -10,6 +10,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import '../../EventCard.css';
+import { Link } from 'react-router-dom';
 
 const EventCards = () => {
   const { loading, error, data } = useQuery(GET_EVENTS);
