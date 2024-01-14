@@ -6,10 +6,11 @@ import App from './App'
 import ErrorPage from './pages/ErrorPage'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
-import Home from './pages/Home'
+import Home from './pages/home'
 import AboutUs from './pages/AboutUs'
 import Events from './pages/Events'
 import Vendors from './pages/Vendors'
+import EventCreateForm from './pages/EventCreateForm'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       }, {
         path: '/Vendors',
         element: <Vendors />
+      },
+      {
+        path: '/EventCreateForm',
+        element: <EventCreateForm />
       },
     ]
   }

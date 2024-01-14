@@ -73,22 +73,26 @@ const resolvers = {
       const user = await User.create({ username, email, password, isAdmin });
       // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
       const token = signToken(user);
+      console.log(user);
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
 
+    login: async (parent, { email, password }) => {
+      
+      const user = await User.findOne({ email });
+      
+      
       if (!user) {
         throw new AuthenticationError('Incorrect email or password');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-
+      console.log(correctPw);
       if (!correctPw) {
         throw new AuthenticationError('Incorrect email or password');
       }
-
+      
       const token = signToken(user);
 
       return { token, user };

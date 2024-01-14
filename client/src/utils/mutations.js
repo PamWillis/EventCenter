@@ -24,3 +24,20 @@ export const ADD_USER = gql`
     }
   }
 `;
+export const SAVE_EVENT = gql`
+mutation SaveEvent($event: EventInput!) {
+  saveEvent(event: $event) {
+    _id
+    username
+    email
+    savedEvents {
+      _id
+      title
+      date
+      time
+      description
+      image
+    }
+  }
+}
+`;
