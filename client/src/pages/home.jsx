@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heroImage from '../assets/home/main-hero.jpg'; 
 import mustacheImage from '../assets/home/main-mustache.jpg'; 
 import contactImage from '../assets/home/contact.jpg'; 
 import ferriswheelImage from '../assets/home/main-ferriswheel.jpg'; 
