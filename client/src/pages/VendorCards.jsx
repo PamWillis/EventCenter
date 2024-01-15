@@ -18,8 +18,9 @@ const VendorCards = () => {
   // Handling error state
   if (error) return <Typography>Error loading vendors: {error.message}</Typography>;
 
-  console.log(data);
-  const users = data?.allUsers || [];
+  // Sort users alphabetically by username
+  const users = data?.allUsers?.slice().sort((a, b) => a.username.localeCompare(b.username)) || [];
+
 
   // Rendering the vendor cards
   return (
@@ -28,8 +29,8 @@ const VendorCards = () => {
         {users.map(user => (
           <Card key={user._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
             <CardHeader color="blueGray">
-              <Typography 
-              variant="h3" color="cyan">
+              <Typography
+                variant="h3" color="cyan">
                 {user.username}
               </Typography>
             </CardHeader>
