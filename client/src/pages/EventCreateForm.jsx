@@ -4,6 +4,7 @@ import '../App.css';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { SAVE_EVENT } from '../utils/mutations';
+import { useNavigate } from 'react-router-dom';
 
 
 import {
@@ -14,6 +15,7 @@ import {
 } from "@material-tailwind/react";
 
 const EventCreateForm = () => {
+  const navigate = useNavigate(); 
   const [formState, setFormState] = useState({
     title: '',
     description: '',
@@ -54,10 +56,14 @@ const [imageState, setImageState] = useState('');
         image: ''
       });
       setImageState('');
+  
+      // Redirect to the /Events page
+      navigate('/Events');
     } catch (e) {
       console.error(e);
     }
   };
+  
   
 
   const handleImageSelect = (image) => setImageState(image);
