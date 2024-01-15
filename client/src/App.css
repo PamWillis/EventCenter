@@ -34,6 +34,7 @@ h1 {
     font-size: 2em;
     margin-bottom: 20px;
 }
+
 h3 {
     font-weight: 900;
     font-size: 1em;
@@ -50,21 +51,41 @@ button {
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-  }
+}
 
-  button:hover {
+button:hover {
     border-color: #646cff;
-  }
-  
-  button:focus,
-  button:focus-visible {
+}
+
+button:focus,
+button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
-  }
+}
 
 p {
     font-size: 1em;
     margin-bottom: 10px;
 }
+
+.nav-link {
+    font-family: 'Bree Serif', serif;
+    color: rgb(13, 177, 232);
+}
+
+.nav-link.active {
+    color: lime;
+    font-family: 'Bree Serif', serif;
+    font-weight: 800;
+}
+.logout-button {
+    font-family: 'Bree Serif', serif;
+    color: rgb(13, 177, 232);
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(13, 177, 232, 0.8);
+    box-shadow: 0 0 20px rgba(13, 177, 232, 0.4);
+  }
 
 /* Media Queries */
 
