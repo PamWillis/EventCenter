@@ -28,7 +28,7 @@ const VendorCards = () => {
       <div className="flex flex-wrap">
         {users.map(user => (
           <Card key={user._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <CardHeader color="blueGray">
+            <CardHeader color="white">
               <Typography
                 variant="h3" color="cyan">
                 {user.username}

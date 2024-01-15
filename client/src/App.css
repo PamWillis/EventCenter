@@ -71,7 +71,7 @@ nav {
   }
 .nav-link {
     font-family: 'Bree Serif', serif;
-    color: rgb(13, 177, 232);
+    color: cyan;
 }
 
 .nav-link.active {
@@ -82,7 +82,7 @@ nav {
 
 .logout-button {
     font-family: 'Bree Serif', serif;
-    color: rgb(13, 177, 232);
+    color: cyan;
     font-size: 16px;
     padding: 5px 15px;
     border-radius: 20px;
