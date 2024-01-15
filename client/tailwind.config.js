@@ -9,7 +9,8 @@ module.exports = withMT({
     extend: {
       backgroundImage: {
         'aboutUsHero': "url('../src/assets/home/team.jpg')",
-        'eventsHero' : "url('../src/assets/home/eventsHero.jpg"
+        'eventsHero' : "url('../src/assets/home/eventsHero.jpg')",
+        'vendorsHero' : "url('../src/assets/home/vendorsHero.jpg')",
       }
     },
     screens: {

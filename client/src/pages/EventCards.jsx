@@ -9,7 +9,6 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import '../../EventCard.css';
 import { Link } from 'react-router-dom';
 
 const EventCards = () => {
@@ -36,9 +35,10 @@ const EventCards = () => {
   // Rendering the event cards
   return (
     <div className="p-4 eventsHero">
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {data && data.eventsFromAllUsers.map(event => (
-          <Card key={event._id} shadow="lg" className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
+          // Entire Card Background
+          <Card key={event._id}  className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
             <CardHeader
             className='text-center shadow-xl mt-1 bg-transparent'>
               <Typography 
@@ -49,7 +49,8 @@ const EventCards = () => {
                 {event.title}
               </Typography>
             </CardHeader>
-            <CardBody className="bg-gray-400/20">
+            {/* Message, Date, and Time */}
+            <CardBody className="bg-gray-400/25 rounded-lg">
               <Typography className="mt-2 font-semibold text-md text-gray-300">
                 {event.description}
               </Typography>

@@ -7,7 +7,6 @@ import {
   CardBody,
   Typography,
 } from "@material-tailwind/react";
-import '../../EventCard.css';
 
 const VendorCards = () => {
   const { loading, error, data } = useQuery(GET_ALL_USERS);
@@ -23,21 +22,27 @@ const VendorCards = () => {
 
   // Rendering the vendor cards
   return (
-    <div className="p-4">
-      <div className="flex flex-wrap">
+    <div className="p-4 vendorsHero">
+      <div className="flex flex-wrap justify-center">
         {users.map(user => (
-          <Card key={user._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <CardHeader color="blueGray">
+          // Entire Card Background
+          <Card key={user._id} className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
+            <CardHeader
+            className='text-center shadow-xl mt-1 bg-transparent'>
               <Typography 
-              variant="h3" color="cyan">
+              variant="h3"
+              color="cyan"
+              className='mb-10'
+              >
                 {user.username}
               </Typography>
             </CardHeader>
-            <CardBody>
-              <Typography className="mt-2">
+            {/* Events and Demos Count */}
+            <CardBody className="bg-gray-400/25 rounded-lg">
+              <Typography className="mt-2 font-semibold text-md text-gray-300">
                 Events: {user.savedEvents.length}
               </Typography>
-              <Typography className="mt-2">
+              <Typography className="mt-2 font-semibold text-md text-gray-300">
                 Demos: {user.savedDemos.length}
               </Typography>
             </CardBody>

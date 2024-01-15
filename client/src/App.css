@@ -1,6 +1,12 @@
+* {
+    font-family: 'Concert One', sans-serif;
+}
+
 html,
 body,
-h1,
+h1 {
+    font-size: large;
+}
 p {
     margin: 0;
     padding: 0;
@@ -9,7 +15,7 @@ p {
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: gray;
+    background-color: #f0f0f0;
     color: #333;
     line-height: 1.6;
 }
@@ -34,6 +40,7 @@ h1 {
     font-size: 2em;
     margin-bottom: 20px;
 }
+
 h3 {
     font-weight: 900;
     font-size: 1em;
@@ -50,16 +57,16 @@ button {
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-  }
+}
 
-  button:hover {
+button:hover {
     border-color: #646cff;
-  }
-  
-  button:focus,
-  button:focus-visible {
+}
+
+button:focus,
+button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
-  }
+}
 
 p {
     font-size: 1em;

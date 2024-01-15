@@ -25,13 +25,13 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-gray-800 py-4 sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-cyan-900 to-green-800 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
 
         {/* Logo */}
 
         <div className="flex items-center">
-          <img src={logoImage} alt="Logo" className="h-14 mr-3" />
+          <img src={logoImage} alt="Logo" className="h-14 mr-3" style={{height: "60px"}} />
         </div>
 
         {/* Nav Links */}
@@ -54,7 +54,7 @@ const Navbar = () => {
 
           {AuthService.loggedIn() ? (
             <>
-              <a href="../EventCreateForm" cclassName="text-white">
+              <a href="../EventCreateForm" className="text-white">
                 Create an Event
               </a>
               <Button 
@@ -98,9 +98,9 @@ const Navbar = () => {
               <a href="../EventCreateForm" className="block py-2 px-4 text-sm text-white">
                 EventCreateForm
               </a>
-              <button onClick={handleLogout} className="block py-2 px-4 text-sm text-white cursor-pointer">
+              <Button onClick={handleLogout} className="block py-2 px-4 text-sm text-white cursor-pointer">
                 Logout
-              </button>
+              </Button>
             </>
           ) : (
             <a href="../login" className="block py-2 px-4 text-sm text-white" onClick={handleLoginSignupClick}>

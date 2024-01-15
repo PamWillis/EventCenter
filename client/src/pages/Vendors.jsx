@@ -2,8 +2,7 @@ import VendorCards from './VendorCards';
 
 function Vendors() {
   return (
-    <div>
-      <h1>Vendors</h1>
+    <div style={{backgroundImage: 'url(../src/assets/home/vendorsHero.jpg)'}}>
       <VendorCards />
     </div>
   );
