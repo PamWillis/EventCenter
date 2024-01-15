@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react';
 import {
   Card,
   Input,
@@ -7,71 +7,66 @@ import {
 } from "@material-tailwind/react";
 
 const Widget = ({ handleImageSelect }) => {
-  const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
-  const uploadImage = () => {
-    const data = new FormData()
+  const fileInputRef = useRef(null);
 
-    data.append("file", image)
-    data.append("upload_preset", "upload_event")
-    data.append("cloud_name", "eventCollector")
-    fetch("  https://api.cloudinary.com/v1_1/eventCollector/image/upload", {
+  const handleImageInputChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      uploadImage(file);
+    }
+  };
+
+  const uploadImage = (file) => {
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "upload_event");
+    data.append("cloud_name", "eventCollector");
+
+    fetch("https://api.cloudinary.com/v1_1/eventCollector/image/upload", {
       method: "post",
       body: data
     })
+    .then(resp => resp.json())
+    .then(data => {
+      handleImageSelect(data.url);
+      setUrl(data.url);
+    })
+    .catch(err => console.log(err));
+  };
 
-      .then(resp => resp.json())
-      .then(data => {
-        handleImageSelect(data.url)
-        setUrl(data.url)
-      })
-
-      .catch(err => console.log(err))
-  }
-
-  const [formState, setFormState] = useState({ image: '' });
-
-  const PullData = () => {
-    let Url = image;
-    return (
-      <Input
-        value={formState.image}
-        onChange={handleImageSelect}
-      />
-    );
+  const handleUploadButtonClick = () => {
+    fileInputRef.current.click();
   };
 
   return (
     <div>
-      <Card color="transparent" shadow={true}>
+      <Card color="transparent" shadow={false}>
         <div className="p-4">
-          <Typography variant="h3" color="blue-gray" className="mb-4 text-md">
-            Upload your picture to use on the event page
-          </Typography><div />
-          <div className="file-input-container justify center">
-            <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-              id="file-input"
-              className="hidden" // Hide the default file input
-            />
-            <label htmlFor="file-input" className="custom-file-input">
-              CHOOSE FILE FROM YOUR DEVICE
-            </label>
-          </div>
-          <div></div>
-          
-          <Button
-            onClick={uploadImage}
-            variant="transparent"
-            className="flex items-center justify center gap-3 bg-green-500">
-            Upload Picture
-          </Button>
+
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleImageInputChange}
+            className="hidden"
+          />
+        <Button
+          onClick={handleUploadButtonClick}
+          variant="text"
+          className="flex items-center justify-center gap-3 bg-green-500 w-full" 
+        >
+          <span className="material-icons">image</span>
+          Upload Picture
+        </Button>
         </div>
       </Card>
-      <div className="mt-4">
-      </div>
+      {url && (
+        <div className="mt-4">
+          <img src={url} alt="Uploaded" className="w-full h-auto" />
+        </div>
+      )}
     </div>
   );
 };
+
 export default Widget;

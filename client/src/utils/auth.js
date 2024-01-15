@@ -7,10 +7,12 @@ class AuthService {
   getProfile() {
     return decode(this.getToken());
   }
+  
   saveEvents() {
     // Return decoded user information
     return this.getProfile();
   }
+
   saveDemos() {
     // Return decoded user information
     return this.getProfile();

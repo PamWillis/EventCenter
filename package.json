@@ -9,7 +9,8 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "render-build": "npm install && npm run build",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "start-mongo": "mongod"
   },
   "engines": {
     "node": ">=18.18.0 <19.0.0"
@@ -21,6 +22,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.8",
+    "mongoose": "^8.0.4",
     "nodemon": "^3.0.2",
     "react-modal": "^3.16.1"
   }

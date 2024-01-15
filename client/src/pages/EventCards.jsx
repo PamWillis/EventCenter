@@ -10,6 +10,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import '../../EventCard.css';
+import { Link } from 'react-router-dom';
 
 const EventCards = () => {
   const { loading, error, data } = useQuery(GET_EVENTS);
@@ -67,7 +68,12 @@ const EventCards = () => {
               />
             )}
             <CardFooter>
-              <Button color="green">JOIN AS A VENDOR</Button>
+            <Link to={`/event-detail/${event._id}`} style={{ textDecoration: 'none' }}>
+            <Button color="green">
+                  See More Details
+            </Button>
+            </Link>
+              {/* <Button color="green">See More Details</Button> */}
             </CardFooter>
           </Card>
         ))}
