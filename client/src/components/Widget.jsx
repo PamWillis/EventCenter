@@ -41,24 +41,23 @@ const Widget = ({ handleImageSelect }) => {
 
   return (
     <div>
-      <Card color="filled" shadow={true}>
+      <Card color="transparent" shadow={false}>
         <div className="p-4">
-          <Typography variant="h3" color="blue-gray" className="mb-4 text-md">
-            Upload your picture to use on the event page
-          </Typography>
+
           <input
             type="file"
             ref={fileInputRef}
             onChange={handleImageInputChange}
             className="hidden"
           />
-          <Button
-            onClick={handleUploadButtonClick}
-            variant="transparent"
-            className="flex items-center justify-center gap-3 bg-green-500"
-          >
-            Upload Picture
-          </Button>
+        <Button
+          onClick={handleUploadButtonClick}
+          variant="text"
+          className="flex items-center justify-center gap-3 bg-green-500 w-full" 
+        >
+          <span className="material-icons">image</span>
+          Upload Picture
+        </Button>
         </div>
       </Card>
       {url && (
