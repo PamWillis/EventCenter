@@ -34,24 +34,28 @@ const EventCards = () => {
 
   // Rendering the event cards
   return (
-    <div className="p-4">
+    <div className="p-4 eventsHero">
       <div className="flex flex-wrap">
         {data && data.eventsFromAllUsers.map(event => (
-          <Card key={event._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <CardHeader color="blueGray">
+          <Card key={event._id} shadow="lg" className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
+            <CardHeader
+            className='text-center shadow-xl mt-1 bg-transparent'>
               <Typography 
-              variant="h3" color="cyan">
+              variant="h3"
+              color="cyan"
+              className="mb-10"
+              >
                 {event.title}
               </Typography>
             </CardHeader>
-            <CardBody>
-              <Typography className="mt-2">
+            <CardBody className="bg-gray-400/20">
+              <Typography className="mt-2 font-semibold text-md text-gray-300">
                 {event.description}
               </Typography>
-              <Typography className="mt-2">
+              <Typography className="mt-2 font-bold underline text-sm text-gray-300">
                 Date: {formatDate(event.date)}
               </Typography>
-              <Typography className="mt-2">
+              <Typography className="mt-2 font-bold underline text-sm text-gray-300">
                 Time: {formatTime(event.time)}
               </Typography>
             </CardBody>
@@ -59,7 +63,7 @@ const EventCards = () => {
               <img
                 src={event.image}
                 alt={event.title}
-                className="mt-2 custom-fit bg-white opacity-100"
+                className="mt-4 object-scale-down"
               />
             )}
             <CardFooter>
