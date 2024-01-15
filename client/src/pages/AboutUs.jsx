@@ -7,31 +7,24 @@ import chrisImage from '../assets/home/chris.jpg';
 import pamImage from '../assets/home/pam.jpg';
 
 const AboutUs = () => {
+  const frameStyles = [
+    { transform: 'rotate(3deg)', width: '80%' },
+    { transform: 'rotate(-2deg)', width: '80%' },
+    { transform: 'rotate(1deg)', width: '80%' },
+    { transform: 'rotate(-3deg)', width: '80%' },
+    { transform: 'rotate(2deg)', width: '80%' },
+    { transform: 'rotate(-1deg)', width: '80%' },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl text-center font-bold mb-8">Our Team</h1>
       <div className="grid grid-cols-3 gap-4">
-        {/* Row 1 */}
-        <div className="text-center">
-          <img src={daveImage} alt="Dave" className="w-full" />
-        </div>
-        <div className="text-center">
-          <img src={dave2Image} alt="Dave2" className="w-full" />
-        </div>
-        <div className="text-center">
-          <img src={josiahImage} alt="Josiah" className="w-full" />
-        </div>
-        
-        {/* Row 2 */}
-        <div className="text-center">
-          <img src={alanImage} alt="Alan" className="w-full" />
-        </div>
-        <div className="text-center">
-          <img src={chrisImage} alt="Chris" className="w-full" />
-        </div>
-        <div className="text-center">
-          <img src={pamImage} alt="Pam" className="w-full" />
-        </div>
+        {[daveImage, dave2Image, josiahImage, alanImage, chrisImage, pamImage].map((image, index) => (
+          <div key={index} className="text-center p-2" style={frameStyles[index % frameStyles.length]}>
+            <img src={image} alt={`Team member ${index + 1}`} className="w-full rounded border-8 border-black shadow-lg" />
+          </div>
+        ))}
       </div>
     </div>
   );
