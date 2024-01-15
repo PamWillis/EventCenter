@@ -48,7 +48,7 @@ const EventCards = () => {
       <div className="flex flex-wrap">
       {sortedEvents.map((event) => (
           <Card key={event._id} color="lightBlue" shadow="lg" className="mb-4 p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <CardHeader color="blueGray">
+            <CardHeader color="white">
               <Typography
                 variant="h3" color="cyan">
                 {event.title}

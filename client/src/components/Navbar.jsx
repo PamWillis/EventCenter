@@ -28,43 +28,54 @@ const Navbar = () => {
           <img src={logoImage} alt="EventCenter" className="h-14 mr-3 mb-3" />
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <NavLink to="/"
-            className="nav-link" activeClassName="active"
+          <NavLink
+          className="nav-link"
+          to="/"
+            
           >
             Home
           </NavLink>
-          <NavLink to="../AboutUs"
-            className="nav-link" activeClassName="active"
+          <NavLink
+          className="nav-link"
+          to="../AboutUs"
+            
           >
             About Us
           </NavLink>
-          <NavLink to="../Events"
-            className="nav-link" activeClassName="active"
+          <NavLink
+          className="nav-link"
+          to="../Events"
+           
           >
             Events
           </NavLink>
-          <NavLink to="../Vendors"
-            className="nav-link" activeClassName="active"
+          <NavLink
+          className="nav-link"
+          to="../Vendors"
+            
           >
             Vendors
           </NavLink>
           {AuthService.loggedIn() ? (
             <>
-              <NavLink to="../EventCreateForm"
-                className="nav-link" activeClassName="active"
+              <NavLink 
+              className="nav-link"
+              to="../EventCreateForm"
+                
               >
                 Create an Event
               </NavLink>
               <Button
                 onClick={handleLogout}
-                className="font-Bree text-cyan-500 cursor-pointer logout-button"
+                className="nav-link cursor-pointer logout-button"
               >
                 Logout
               </Button>
             </>
           ) : (
-            <NavLink to="../login"
-              className="text-white" onClick={handleLoginSignupClick}>
+            <NavLink
+              className="nav-link" onClick={handleLoginSignupClick}
+              to="../login">
               Login/Signup
             </NavLink>
           )}
