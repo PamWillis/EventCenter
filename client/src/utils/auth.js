@@ -9,8 +9,10 @@ class AuthService {
   }
   
   saveEvents() {
+
     // Return decoded user information
     return this.getProfile();
+  
   }
 
   saveDemos() {
