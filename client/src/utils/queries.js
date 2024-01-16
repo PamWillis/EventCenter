@@ -38,3 +38,17 @@ export const GET_ALL_USERS = gql`
     }
   }
 `;
+
+export const GET_EVENT_DETAILS = gql`
+  query EventDetails($eventId: ID!) {
+    eventDetails(eventId: $eventId) {
+      _id
+      title
+      description
+      date
+      time
+      image
+      // Add more fields as needed
+    }
+  }
+`;

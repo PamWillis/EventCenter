@@ -54,6 +54,21 @@ const resolvers = {
         console.error(error);
         throw new Error('Failed to fetch all users');
       }
+    },
+    eventDetails: async (_, { eventId }) => {
+      try {
+        const event = await Event.findById(eventId)
+          .populate('user') // Populate the user field if needed
+          .populate('vendors'); // Populate the vendors field if needed
+
+        if (!event) {
+          throw new Error('Event not found');
+        }
+
+        return event;
+      } catch (error) {
+        throw new Error(`Error fetching event details: ${error.message}`);
+      }
     }
   },
 
