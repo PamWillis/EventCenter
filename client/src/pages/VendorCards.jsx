@@ -23,11 +23,11 @@ const VendorCards = () => {
 
   // Rendering the vendor cards
   return (
-    <div className="p-4 vendorsHero">
+    <div className="p-4">
       <div className="flex flex-wrap justify-center">
         {users.map(user => (
           // Entire Card Background
-          <Card key={user._id} className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
+          <Card key={user._id} className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/50 w-fit">
             <CardHeader
             className='text-center shadow-xl mt-1 bg-transparent'>
               <Typography 
@@ -39,7 +39,7 @@ const VendorCards = () => {
               </Typography>
             </CardHeader>
             {/* Events and Demos Count */}
-            <CardBody className="bg-gray-400/25 rounded-lg">
+            <CardBody className="bg-gray-400/35 rounded-lg">
               <Typography className="mt-2 font-semibold text-md text-gray-300">
                 Events: {user.savedEvents.length}
               </Typography>

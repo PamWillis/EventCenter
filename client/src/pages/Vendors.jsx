@@ -2,7 +2,7 @@ import VendorCards from './VendorCards';
 
 function Vendors() {
   return (
-    <div style={{backgroundImage: 'url(../src/assets/home/vendorsHero.jpg)'}}>
+    <div className='bg-cover' style={{backgroundImage: 'url(../src/assets/home/vendorsHero.jpg)'}}>
       <VendorCards />
     </div>
   );
