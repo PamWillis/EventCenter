@@ -1,23 +1,35 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { GET_EVENT_BY_ID } from '../utils/queries'; // Assume you have this query set up
+import { GET_EVENT_DETAILS } from '../utils/queries';
 import {
   Card,
   Typography,
   Button,
 } from "@material-tailwind/react";
 
-const EventDetailPage = () => {
+const EventDetails = () => {
   const { eventId } = useParams();
-  const { loading, error, data } = useQuery(GET_EVENT_BY_ID, {
-    variables: { id: eventId },
+  const { loading, error, data } = useQuery(GET_EVENT_DETAILS, {
+    variables: { eventId },
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const event = data.event; // Adjust based on your actual data structure
+  const event = data.eventDetails;
+
+  // Function to format the date
+  const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString(undefined, options);
+  };
+
+  // Function to format the time
+  const formatTime = (time) => {
+    const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+    return new Date(`2000-01-01T${time}`).toLocaleTimeString(undefined, options);
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -32,10 +44,8 @@ const EventDetailPage = () => {
         <div className="p-4">
           <Typography variant="h1" color="cyan">{event.title}</Typography>
           <Typography className="my-2">{event.description}</Typography>
-          <Typography className="my-2">Date: {new Date(event.date).toLocaleDateString()}</Typography>
-          <Typography className="my-2">Time: {event.time}</Typography>
-          {/* Example of bogus cost, adjust as needed */}
-          <Typography className="my-2">Cost: $50.00 per person</Typography>
+          <Typography className="my-2">Date: {formatDate(event.date)}</Typography>
+          <Typography className="my-2">Time: {formatTime(event.time)}</Typography>
           <Button color="green" className="mt-4">Become a Vendor</Button>
         </div>
       </Card>
@@ -43,4 +53,4 @@ const EventDetailPage = () => {
   );
 };
 
-export default EventDetailPage;
+export default EventDetails;
