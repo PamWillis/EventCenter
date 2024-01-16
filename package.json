@@ -21,15 +21,6 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@material-tailwind/react": "^2.1.8",
-    "@rollup/rollup-darwin-x64": "^4.9.5",
-    "mongoose": "^8.0.4",
-    "nodemon": "^3.0.2",
-    "react-modal": "^3.16.1",
-    "react-router-dom": "^6.21.2"
-=======
     "@material-tailwind/react": "^2.1.8"
->>>>>>> 23eb5dfa9bb008243ea53e222ab54ab1db1759db
   }
 }
