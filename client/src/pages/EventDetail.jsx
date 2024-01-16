@@ -30,7 +30,7 @@ const EventDetailPage = () => {
           />
         )}
         <div className="p-4">
-          <Typography variant="h1" color="blueGray">{event.title}</Typography>
+          <Typography variant="h1" color="cyan">{event.title}</Typography>
           <Typography className="my-2">{event.description}</Typography>
           <Typography className="my-2">Date: {new Date(event.date).toLocaleDateString()}</Typography>
           <Typography className="my-2">Time: {event.time}</Typography>

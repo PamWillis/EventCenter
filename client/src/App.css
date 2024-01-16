@@ -72,13 +72,58 @@ p {
     font-size: 1em;
     margin-bottom: 10px;
 }
+nav {
+    transition: height 0.3s ease-in-out; /* Add a default transition property */
+  }
+.nav-link {
+    font-family: 'Bree Serif', serif;
+    color: cyan;
+}
+
+.nav-link.active {
+    color: lime;
+    font-family: 'Bree Serif', serif;
+    font-weight: 800;
+}
+
+.logout-button {
+    font-family: 'Bree Serif', serif;
+    color: cyan;
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(13, 177, 232, 0.8);
+    box-shadow: 0 0 20px rgba(13, 177, 232, 0.4);
+}
+
+
+
 
 /* Media Queries */
 
 
 /* Styles for screens smaller than 600px */
 @media screen and (max-width: 600px) {
-    /* Your CSS rules for small screens here */
+    .logout-button {
+        margin-left: .75em;
+        margin-top: .2em;
+    }
+
+    .header-shrink {   
+        /* Adjust the height as needed */
+        transition: height 0.3s ease-in-out;
+    }
+    #mobile-menu {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu-show {
+        transform: translateX(100%);
+    }
+    
+    .mobile-menu-hide {
+        transform: translateX(0);
+    }
 }
 
 /* Styles for screens between 600px and 900px */

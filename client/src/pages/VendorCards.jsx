@@ -17,8 +17,9 @@ const VendorCards = () => {
   // Handling error state
   if (error) return <Typography>Error loading vendors: {error.message}</Typography>;
 
-  console.log(data);
-  const users = data?.allUsers || [];
+  // Sort users alphabetically by username
+  const users = data?.allUsers?.slice().sort((a, b) => a.username.localeCompare(b.username)) || [];
+
 
   // Rendering the vendor cards
   return (
