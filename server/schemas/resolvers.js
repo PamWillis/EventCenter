@@ -57,17 +57,21 @@ const resolvers = {
     },
     eventDetails: async (_, { eventId }) => {
       try {
-        const event = await Event.findById(eventId)
-          .populate('user') // Populate the user field if needed
-          .populate('vendors'); // Populate the vendors field if needed
+        const users = await User.find();
+        const events = [];
 
-        if (!event) {
-          throw new Error('Event not found');
+        for (const user of users) {
+          events.push(...user.savedEvents);
         }
-
-        return event;
+        for (const event of events){
+          if (eventId == event._id){
+            return event;
+          }
+        }
       } catch (error) {
-        throw new Error(`Error fetching event details: ${error.message}`);
+        console.log(error)
+        throw new Error('Failed to find event ID:' + eventId);
+
       }
     }
   },

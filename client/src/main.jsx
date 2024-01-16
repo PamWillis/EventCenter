@@ -12,6 +12,7 @@ import Events from './pages/Events'
 import Vendors from './pages/Vendors'
 import EventCreateForm from './pages/EventCreateForm'
 import FacilityTour from './pages/FacilityTour';
+import EventDetails from './pages/EventDetails'; 
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
             element: <EventDetails />,
           },
         ],
-      }, {
+      },
+      {
         path: '/Vendors',
         element: <Vendors />
       },

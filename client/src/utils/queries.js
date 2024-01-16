@@ -44,11 +44,10 @@ export const GET_EVENT_DETAILS = gql`
     eventDetails(eventId: $eventId) {
       _id
       title
-      description
       date
       time
+      description
       image
-      // Add more fields as needed
     }
   }
 `;

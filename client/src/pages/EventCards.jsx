@@ -78,7 +78,7 @@ const EventCards = () => {
               />
             )}
             <CardFooter>
-            <Link to={`/events/${event._id}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/Events/${event._id}`} key={event._id}>
             <Button color="green">
                   See More Details
             </Button>
