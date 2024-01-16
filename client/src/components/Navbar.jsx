@@ -8,6 +8,7 @@ import '../App.css';
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('home');
 
   const handleLoginSignupClick = () => {
     setShowModal(true);
@@ -20,48 +21,57 @@ const Navbar = () => {
     setMobileMenuVisible(!mobileMenuVisible);
   };
 
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  }
+
   return (
-    <nav className={`bg-gray-800 py-1.75 sticky top-0 z-50 ${mobileMenuVisible ? 'header-shrink' : ''}`}>
+    <nav className={`bg-gradient-to-r from-cyan-900 to-green-800 py-1.75 sticky top-0 z-50 ${mobileMenuVisible ? 'header-shrink' : ''}`}>
       <div className="container mx-auto flex justify-between items-center">
+
         {/* Logo */}
+
         <div className="flex items-center align-center">
-          <img src={logoImage} alt="EventCenter" className="h-14 mr-3 mb-3" />
+          <img src={logoImage} alt="EventCenter" className="h-14 mr-3 mb-3" style={{ height: "60px" }} />
         </div>
+
+        {/* Nav Links */}
+
         <div className="hidden md:flex items-center space-x-4">
           <NavLink
-          className="nav-link"
-          to="/"
-            
+            className="nav-link"
+            to="/"
+
           >
             Home
           </NavLink>
           <NavLink
-          className="nav-link"
-          to="../AboutUs"
-            
+            className="nav-link"
+            to="../AboutUs"
+
           >
             About Us
           </NavLink>
           <NavLink
-          className="nav-link"
-          to="../Events"
-           
+            className="nav-link"
+            to="../Events"
+
           >
             Events
           </NavLink>
           <NavLink
-          className="nav-link"
-          to="../Vendors"
-            
+            className="nav-link"
+            to="../Vendors"
+
           >
             Vendors
           </NavLink>
           {AuthService.loggedIn() ? (
             <>
-              <NavLink 
-              className="nav-link"
-              to="../EventCreateForm"
-                
+              <NavLink
+                className="nav-link"
+                to="../EventCreateForm"
+
               >
                 Create an Event
               </NavLink>
@@ -80,6 +90,10 @@ const Navbar = () => {
             </NavLink>
           )}
         </div>
+
+        {/* MOBILE NAVBAR */}
+
+
         <div className="md:hidden">
           <Button onClick={handleMobileMenuToggle} id="mobile-menu-toggle" className="text-white">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -88,7 +102,7 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
-      <div className={`md:hidden ${mobileMenuVisible ? 'mobile-menu-show' : 'mobile-menu-hide'}`} id="mobile-menu">
+      <div className={`md:hidden ${mobileMenuVisible ? 'mobile-menu-show' : 'mobile-menu-hide'} sticky`} id="mobile-menu">
 
         <NavLink to="/"
           className="nav-link block py-2 px-4 text-sm text-white">
