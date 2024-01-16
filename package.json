@@ -21,6 +21,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@material-tailwind/react": "^2.1.8"
+    "@material-tailwind/react": "^2.1.8",
+    "mongodb": "^6.3.0"
   }
 }
