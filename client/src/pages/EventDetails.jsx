@@ -19,6 +19,18 @@ const EventDetails = () => {
 
   const event = data.eventDetails;
 
+  // Function to format the date
+  const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString(undefined, options);
+  };
+
+  // Function to format the time
+  const formatTime = (time) => {
+    const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+    return new Date(`2000-01-01T${time}`).toLocaleTimeString(undefined, options);
+  };
+
   return (
     <div className="container mx-auto p-4">
       <Card color="lightBlue" shadow="lg" className="mb-4 p-4">
@@ -32,8 +44,8 @@ const EventDetails = () => {
         <div className="p-4">
           <Typography variant="h1" color="cyan">{event.title}</Typography>
           <Typography className="my-2">{event.description}</Typography>
-          <Typography className="my-2">Date: {new Date(event.date).toLocaleDateString()}</Typography>
-          <Typography className="my-2">Time: {event.time}</Typography>
+          <Typography className="my-2">Date: {formatDate(event.date)}</Typography>
+          <Typography className="my-2">Time: {formatTime(event.time)}</Typography>
           <Button color="green" className="mt-4">Become a Vendor</Button>
         </div>
       </Card>
