@@ -31,6 +31,46 @@
     }
 
     ]
+    },
+    {
+      "username": "Gerald",
+      "email": "gerald@gmail.com",
+      "password": "password",
+      "isAdmin": "false",
+      "savedEvents": [
+        {
+            "id": "65a3ff0dd2721ed603e8ecf7",
+            "title": "Hawk Creek",
+            "date": "2024-010-15",
+            "time": "9:00:00",
+            "description": "Come see birds of prey. Hawk Creek is a rehabilitation place for wild birds.",
+            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/t4loj8eekllelc2zwzlp.png"
+        }
+    ]
+    },
+    {
+      "username": "Ramone",
+      "email": "ramone@gmail.com",
+      "password": "password",
+      "isAdmin": "false",
+      "savedEvents": [
+        {
+          "id": "65a3ff0dd2721ed603e8ecf7",
+          "title": "Moustache Convention",
+          "date": "2024-11-06",
+          "time": "16:30:00",
+          "description": "Accessories & Styling. Come show off your fine creation",
+          "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/kzlhajqhqqrr44qsvqtx.png"
+      },
+      {
+        "id": "65a3ff0dd2721ed603e8ecf7",
+        "title": "Children's Balloon Party",
+        "date": "2024-08-16",
+        "time": "10:30:00",
+        "description": "Bring your children to see Bozo the clown, magic tricks, activity center.",
+        "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/pf0rgkly8dhz9xcyfgnn.jpg"
+    }
+    ]
     }
   ]
   

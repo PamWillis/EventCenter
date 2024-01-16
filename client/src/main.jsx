@@ -11,6 +11,7 @@ import AboutUs from './pages/AboutUs'
 import Events from './pages/Events'
 import Vendors from './pages/Vendors'
 import EventCreateForm from './pages/EventCreateForm'
+import FacilityTour from './pages/FacilityTour';
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: '/EventCreateForm',
         element: <EventCreateForm />
+      },
+      {
+        path: '/FacilityTour',
+        element: <FacilityTour />
       },
     ]
   }
