@@ -1,6 +1,12 @@
+* {
+    font-family: 'Concert One', sans-serif;
+}
+
 html,
 body,
-h1,
+h1 {
+    font-size: large;
+}
 p {
     margin: 0;
     padding: 0;
