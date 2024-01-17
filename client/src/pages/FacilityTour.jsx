@@ -1,7 +1,6 @@
 import React from 'react';
 import eventmap from '../assets/home/examplemap.jpg';
 
-
 const FacilityTour = () => {
     return (
       // Container with full viewport height and width, and padding

@@ -32,7 +32,7 @@ const EventDetails = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 bg-gray-400">
       <Card color="transparent" shadow="lg" className="mb-4 p-4">
         {event.image && (
           <img
@@ -41,7 +41,7 @@ const EventDetails = () => {
             className="sm:w-1/2 md:w-1/3 lg:w-1/2 h-auto object-cover"
           />
         )}
-        <div className="p-4">
+        <div className="p-4 bg-gray-200 rounded-lg m-5">
           <Typography variant="h1" color="cyan">{event.title}</Typography>
           <Typography className="my-2">{event.description}</Typography>
           <Typography className="my-2">Date: {formatDate(event.date)}</Typography>
