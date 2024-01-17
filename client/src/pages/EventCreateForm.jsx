@@ -93,7 +93,7 @@ const EventCreateForm = () => {
                   value={formState.title || ''}
                   onChange={handleInputChange}
                   name="title"
-                  className="bg-gray-100"
+                  className="bg-white"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
@@ -111,7 +111,7 @@ const EventCreateForm = () => {
                   value={formState.description || ''}
                   onChange={handleInputChange}
                   name="description"
-                  className="bg-gray-100 !border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
@@ -130,7 +130,7 @@ const EventCreateForm = () => {
                   value={formState.date || ''}
                   onChange={handleInputChange}
                   name="date"
-                  className="bg-gray-100 !border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
@@ -149,7 +149,7 @@ const EventCreateForm = () => {
                   value={formState.time || ''}
                   onChange={handleInputChange}
                   name="time"
-                  className="bg-gray-100 !border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{
                     className: "before:content-none after:content-none"
                   }}
@@ -158,7 +158,7 @@ const EventCreateForm = () => {
 
                 {/* Picture Upload Widget */}
 
-                <Widget handleImageSelect={handleImageSelect} />
+                <Widget handleImageSelect={handleImageSelect}/>
               </div>
 
               {/* Create Event Button */}
