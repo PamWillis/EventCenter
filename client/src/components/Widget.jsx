@@ -59,7 +59,7 @@ const Widget = ({ handleImageSelect }) => {
           Upload Picture
         </Button>
         </div>
-      </Card>
+     https://dashboard.render.com/web/srv-cmja6c8l5elc73eq8ue0/shell </Card>
       {url && (
         <div className="mt-4">
           <img src={url} alt="Uploaded" className="w-full h-auto" />
