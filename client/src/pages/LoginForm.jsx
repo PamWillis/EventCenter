@@ -73,7 +73,7 @@ const LoginForm = () => {
               value={formState.email}
               onChange={handleInputChange}
               name="email"
-              className="bg-gray-200 !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -89,7 +89,7 @@ const LoginForm = () => {
               value={formState.password}
               onChange={handleInputChange}
               name="password"
-              className="bg-gray-200 !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}

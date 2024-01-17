@@ -46,7 +46,7 @@ const EventDetails = () => {
           <Typography className="my-2">{event.description}</Typography>
           <Typography className="my-2">Date: {formatDate(event.date)}</Typography>
           <Typography className="my-2">Time: {formatTime(event.time)}</Typography>
-          <Button color="green" className="mt-4">Become a Vendor</Button>
+          <Button color="green" className="mt-4"><a href="/signUp" style={{color: "white"}}>Become a Vendor</a></Button>
         </div>
       </Card>
     </div>
