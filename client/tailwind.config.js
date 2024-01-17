@@ -11,6 +11,8 @@ module.exports = withMT({
         'aboutUsHero': "url('../src/assets/home/team.jpg')",
         'eventsHero' : "url('../src/assets/home/eventsHero.jpg')",
         'vendorsHero' : "url('../src/assets/home/vendorsHero.jpg')",
+        'loginHero' : "url('../src/assets/home/loginHero.jpg')",
+        'signupHero' : "url('../src/assets/home/signupHero.jpg')"
       }
     },
     screens: {
