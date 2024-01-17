@@ -64,9 +64,9 @@ export default function Home() {
       <div className="relative bg-cover bg-center" 
            style={{ height: 'calc(100vh - 100px)', backgroundImage: `url(${contactImage})` }}>
         <div className="absolute bottom-0 w-full flex">
-          <Link to="/FacilityTour" className="w-full h-24 flex justify-center items-center bg-[#0dafec] hover:opacity-75">
-            <p className="text-white text-xl font-bold">CONTACT US</p>
-          </Link>
+          <div className="w-full h-24 flex justify-center items-center bg-[#0dafec]">
+            <p className="text-white text-xl font-bold text-center">CONTACT US BY CLICKING OUR NAMES AT THE BOTTOM!</p>
+          </div>
         </div>
       </div>
       </div>
