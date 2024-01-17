@@ -1,25 +1,25 @@
 [
-    {
-      "username": "Nicole",
-      "email": "nicole@gmail.com",
-      "password": "password",
-      "isAdmin": "false",
-      "savedEvents": [
-        {
-            "id": "65a3ff0dd2721ed603e8ecf7",
-            "title": "Cat's Delite",
-            "date": "2024-03-15",
-            "time": "16:30:00",
-            "description": "Spoil your feline friend. See various vendors with toys, homefood and catnip",
-            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
-        },
-        {
-          "id": "65a3ff0dd2721ed603e8ecf7",
-          "title": "Rose Garden",
-          "date": "2024-08-01",
-          "time": "16:30:00",
-          "description": "Explore the magnificent roses and how they can be cared for.",
-          "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/pgripjuogjbezlzcsrmr.png"
+  {
+    "username": "Nicole",
+    "email": "nicole@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": [
+      {
+        "id": "65a3ff0dd2721ed603e8ecf7",
+        "title": "Cat's Delite",
+        "date": "2024-03-15",
+        "time": "16:30:00",
+        "description": "Spoil your feline friend. See various vendors with toys, homefood and catnip",
+        "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/e8xgh4rowbpvcfmgh735.png"
+      },
+      {
+        "id": "65a3ff0dd2721ed603e8ecf7",
+        "title": "Rose Garden",
+        "date": "2024-08-01",
+        "time": "16:30:00",
+        "description": "Explore the magnificent roses and how they can be cared for.",
+        "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/pgripjuogjbezlzcsrmr.png"
       },
       {
         "id": "65a3ff0dd2721ed603e8ecf7",
@@ -28,39 +28,38 @@
         "time": "16:30:00",
         "description": "An outdoor festival featuring various music bands, food stalls, and entertainment activities.",
         "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/xisw3vwgkm6eytv1rqn8.png"
-    }
-
+      }
     ]
-    },
-    {
-      "username": "Gerald",
-      "email": "gerald@gmail.com",
-      "password": "password",
-      "isAdmin": "false",
-      "savedEvents": [
-        {
-            "id": "65a3ff0dd2721ed603e8ecf7",
-            "title": "Hawk Creek",
-            "date": "2024-010-15",
-            "time": "9:00:00",
-            "description": "Come see birds of prey. Hawk Creek is a rehabilitation place for wild birds.",
-            "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/t4loj8eekllelc2zwzlp.png"
-        }
+  },
+  {
+    "username": "Gerald",
+    "email": "gerald@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": [
+      {
+        "id": "65a3ff0dd2721ed603e8ecf7",
+        "title": "Hawk Creek",
+        "date": "2024-010-15",
+        "time": "9:00:00",
+        "description": "Come see birds of prey. Hawk Creek is a rehabilitation place for wild birds.",
+        "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/t4loj8eekllelc2zwzlp.png"
+      }
     ]
-    },
-    {
-      "username": "Ramone",
-      "email": "ramone@gmail.com",
-      "password": "password",
-      "isAdmin": "false",
-      "savedEvents": [
-        {
-          "id": "65a3ff0dd2721ed603e8ecf7",
-          "title": "Moustache Convention",
-          "date": "2024-11-06",
-          "time": "16:30:00",
-          "description": "Accessories & Styling. Come show off your fine creation",
-          "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/kzlhajqhqqrr44qsvqtx.png"
+  },
+  {
+    "username": "Ramone",
+    "email": "ramone@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": [
+      {
+        "id": "65a3ff0dd2721ed603e8ecf7",
+        "title": "Moustache Convention",
+        "date": "2024-11-06",
+        "time": "16:30:00",
+        "description": "Accessories & Styling. Come show off your fine creation",
+        "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/kzlhajqhqqrr44qsvqtx.png"
       },
       {
         "id": "65a3ff0dd2721ed603e8ecf7",
@@ -69,8 +68,49 @@
         "time": "10:30:00",
         "description": "Bring your children to see Bozo the clown, magic tricks, activity center.",
         "image": "http://res.cloudinary.com/eventcollector/image/upload/v1705085278/pf0rgkly8dhz9xcyfgnn.jpg"
-    }
+      }
     ]
-    }
-  ]
-  
+  },
+  {
+    "username": "Val",
+    "email": "huckleberry@tombstone.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": []
+  },
+  {
+    "username": "Darth Vader",
+    "email": "iamyourfather@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": []
+  },
+  {
+    "username": "Michael",
+    "email": "michaeljordan@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": []
+  },
+  {
+    "username": "Jonah",
+    "email": "jrsmith@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": []
+  },
+  {
+    "username": "Ezra",
+    "email": "egsmith@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": []
+  },
+  {
+    "username": "John Wick",
+    "email": "wheresmydog@gmail.com",
+    "password": "password",
+    "isAdmin": "false",
+    "savedEvents": []
+  }
+]

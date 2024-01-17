@@ -91,6 +91,7 @@ nav {
     color: cyan;
     font-size: 16px;
     padding: 5px 15px;
+    margin: 5px;
     border-radius: 20px;
     border: 1px solid rgba(13, 177, 232, 0.8);
     box-shadow: 0 0 20px rgba(13, 177, 232, 0.4);
@@ -128,7 +129,26 @@ nav {
 
 /* Styles for screens between 600px and 900px */
 @media screen and (min-width: 601px) and (max-width: 900px) {
-    /* Your CSS rules for medium-sized screens here */
+    .logout-button {
+        margin-left: .75em;
+        margin-top: .2em;
+    }
+
+    .header-shrink {   
+        /* Adjust the height as needed */
+        transition: height 0.3s ease-in-out;
+    }
+    #mobile-menu {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu-show {
+        transform: translateX(100%);
+    }
+    
+    .mobile-menu-hide {
+        transform: translateX(0);
+    }
 }
 
 /* Styles for screens larger than 900px */

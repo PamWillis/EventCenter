@@ -6,36 +6,41 @@ import { Button } from "@material-tailwind/react";
 import '../App.css';
 
 const Navbar = () => {
-  const [showModal, setShowModal] = useState(false);
+
+// Hides/Shows mobile menu
+
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
-  const [activeTab, setActiveTab] = useState('home');
+
+  //Signup
 
   const handleLoginSignupClick = () => {
     setShowModal(true);
   };
 
+  //Logout
+
   const handleLogout = () => {
     AuthService.logout();
   };
+
+  //Mobile menu toggle button
+
   const handleMobileMenuToggle = () => {
     setMobileMenuVisible(!mobileMenuVisible);
+    
   };
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  }
-
   return (
-    <nav className={`bg-gradient-to-r from-cyan-900 to-green-800 py-1.75 sticky top-0 z-50 ${mobileMenuVisible ? 'header-shrink' : ''}`}>
+    <nav className={`bg-gradient-to-r from-cyan-900 to-green-800 py-1.75 lg:sticky top-0 z-50 ${mobileMenuVisible ? 'header-shrink' : ''}`} id='navbar'>
       <div className="container mx-auto flex justify-between items-center">
 
-        {/* Logo */}
+        {/* EventsCenter Logo */}
 
         <div className="flex items-center align-center">
-          <img src={logoImage} alt="EventCenter" className="h-14 mr-3 mb-3" style={{ height: "60px" }} />
+          <a href="/"><img src={logoImage} alt="EventCenter" className="h-14 mr-3 mb-3" style={{ height: "60px" }} /></a>
         </div>
 
-        {/* Nav Links */}
+        {/* DESKTOP NAVBAR */}
 
         <div className="hidden md:flex items-center space-x-4">
           <NavLink
@@ -93,16 +98,19 @@ const Navbar = () => {
 
         {/* MOBILE NAVBAR */}
 
-
+      {/* Mobile Menu Toggle Button */}
         <div className="md:hidden">
-          <Button onClick={handleMobileMenuToggle} id="mobile-menu-toggle" className="text-white">
+          <Button onClick={handleMobileMenuToggle} id="mobile-menu-toggle" className="text-white focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
           </Button>
         </div>
       </div>
-      <div className={`md:hidden ${mobileMenuVisible ? 'mobile-menu-show' : 'mobile-menu-hide'} sticky`} id="mobile-menu">
+
+      {/* Mobile Navbar Links*/}
+
+      <div className={`md:hidden ${mobileMenuVisible ? 'mobile-menu-show' : 'mobile-menu-hide'} md:flex justify-center`} id="mobile-menu">
 
         <NavLink to="/"
           className="nav-link block py-2 px-4 text-sm text-white">
@@ -138,7 +146,6 @@ const Navbar = () => {
             Login/Signup
           </NavLink>
         )}
-
       </div>
     </nav>
   );

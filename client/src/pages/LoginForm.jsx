@@ -16,7 +16,7 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
-  const [validated, setValidated] = useState(false);
+  // const [validated, setValidated] = useState(false);
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
@@ -32,7 +32,7 @@ const LoginForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-console.log("hello")
+    console.log("hello")
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -44,6 +44,7 @@ console.log("hello")
     }
 
     // clear form values
+
     setFormState({
       email: '',
       password: '',
@@ -52,9 +53,10 @@ console.log("hello")
 
   return (
     <>
+      <div className='bg-contain' style={{ backgroundImage: 'url(../src/assets/home/loginHero.jpg)' }}>
       <Card color="transparent" shadow={false} className="flex justify-center items-center p-10">
-        <div className="rounded-lg shadow-2xl p-4">
-        <Typography variant="h4" color="blue-gray" className="font-Bree text-cyan-500">
+        <div className="rounded-lg shadow-2xl p-4 bg-gray-200/60">
+        <Typography variant="h4" color="blue-gray" className="font-Bree text-green-500">
           Log In
         </Typography>
         <Typography color="gray" className="mt-1 font-normal">
@@ -71,7 +73,7 @@ console.log("hello")
               value={formState.email}
               onChange={handleInputChange}
               name="email"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -87,7 +89,7 @@ console.log("hello")
               value={formState.password}
               onChange={handleInputChange}
               name="password"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -114,6 +116,7 @@ console.log("hello")
         </form>
         </div>
       </Card>
+      </div>
     </>
   );
 };

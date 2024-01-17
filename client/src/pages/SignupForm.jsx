@@ -80,16 +80,23 @@ const SignupForm = () => {
 
   return (
     <>
-      <Card color="white" className="flex justify-center items-center p-10">
-        <div className="rounded-lg shadow-2xl p-4">
-          <Typography variant="h4" color="blue-gray" className="font-Bree text-green-500">
+    <div className="bg-fit" style={{backgroundImage: 'url(../src/assets/home/signupHero.jpg)', width: ""}}>
+      <Card color="transparent" className="flex justify-center items-center p-10">
+        <div className="rounded-lg shadow-2xl p-4 bg-gray-200/60">
+          <Typography variant="h4" className="font-Bree text-green-500">
             Sign Up
           </Typography>
           <Typography color="gray" className="mt-1 font-normal">
             Nice to meet you! Enter your details to register.
           </Typography>
+
+          {/* Input Form */}
+
           <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
             <div className="mb-1 flex flex-col gap-6">
+
+              {/* User Name */}
+
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 User Name
               </Typography>
@@ -99,7 +106,7 @@ const SignupForm = () => {
                 value={formState.username}
                 onChange={handleInputChange}
                 name="username"
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
                 }}
@@ -107,6 +114,9 @@ const SignupForm = () => {
                 minLength="3"
                 pattern="[A-Za-z]+"
               />
+
+              {/* Email */}
+
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Your Email
               </Typography>
@@ -116,13 +126,16 @@ const SignupForm = () => {
                 value={formState.email}
                 onChange={handleInputChange}
                 name="email"
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
                 }}
                 required
                 pattern="/^[\w-]+(\.[\w-]+)*@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z]{2,}$/"
               />
+
+              {/* Password */}
+
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Password (Minimum 8 characters)
               </Typography>
@@ -133,7 +146,7 @@ const SignupForm = () => {
                 value={formState.password}
                 onChange={handleInputChange}
                 name="password"
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                className="bg-white !border-t-blue-gray-200 focus:!border-t-gray-900"
                 id='password'
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -179,6 +192,7 @@ const SignupForm = () => {
           </form>
         </div>
       </Card>
+      </div>
     </>
   );
 };
