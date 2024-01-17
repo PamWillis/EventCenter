@@ -51,7 +51,7 @@ const EventCards = () => {
             <CardHeader
             className='text-center shadow-xl mt-1 bg-transparent'>
               <Typography 
-              variant="h3"
+              variant="h4"
               color="cyan"
               className="mb-10"
               >
