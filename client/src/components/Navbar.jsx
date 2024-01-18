@@ -10,6 +10,7 @@ const Navbar = () => {
 // Hides/Shows mobile menu
 
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   //Signup
 
