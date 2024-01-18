@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import contactImage from '../assets/home/contact.jpg'; 
-import ferriswheelImage from '../assets/home/main-ferriswheel.jpg';
 import craftsmenImage from '../assets/home/craftsmen.jpg'; 
-import buildingImage from '../assets/home/event-center.jpg'; 
 
 export default function Home() {
   const [Image1, setImage1] = useState(null);
   const [Image2, setImage2] = useState(null);
 
   useEffect(() => {
-      setImage1(ferriswheelImage);
-    }, []);
-
-
+    import('../assets/home/main-ferriswheel.jpg').then((imageModule) => {
+      setImage1(imageModule.default);
+    });
+  }, []);
+  
   useEffect(() => {
-    setImage2(buildingImage);
+    import('../assets/home/event-center.jpg').then((imageModule) => {
+      setImage2(imageModule.default);
+    });
   }, []);
 
   return (
