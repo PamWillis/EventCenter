@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import heroImage from '../assets/home/main-hero.jpg'; 
-import mustacheImage from '../assets/home/main-mustache.jpg'; 
 import contactImage from '../assets/home/contact.jpg'; 
-import ferriswheelImage from '../assets/home/main-ferriswheel.jpg'; 
+import ferriswheelImage from '../assets/home/main-ferriswheel.jpg';
 import craftsmenImage from '../assets/home/craftsmen.jpg'; 
 import buildingImage from '../assets/home/event-center.jpg'; 
 
 export default function Home() {
+  const [Image1, setImage1] = useState(null);
+  const [Image2, setImage2] = useState(null);
+
+  useEffect(() => {
+      setImage1(ferriswheelImage);
+    }, []);
+
+
+  useEffect(() => {
+    setImage2(buildingImage);
+  }, []);
+
   return (
     <div>
       {/* Hero Section with Container */}
       <div className="relative bg-cover bg-center" 
-           style={{ height: 'calc(100vh - 100px)', backgroundImage: `url(${ferriswheelImage})` }}>
+          style={{ height: 'calc(100vh - 100px)', backgroundImage: `url(${Image1})` }}>
         {/* ... Hero Content ... */}
 
         {/* Color Blocks at the bottom with hover effect */}
@@ -49,7 +59,7 @@ export default function Home() {
 
       {/* Tour Section */}
       <div className="relative bg-cover bg-center" 
-           style={{ height: 'calc(100vh - 100px)', backgroundImage: `url(${buildingImage})` }}>
+           style={{ height: 'calc(100vh - 100px)', backgroundImage: `url(${Image2})` }}>
         {/* ... Tour Content ... */}
 
         {/* Color Block at the bottom with hover effect */}
