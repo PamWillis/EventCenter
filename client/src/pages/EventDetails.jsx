@@ -33,12 +33,12 @@ const EventDetails = () => {
 
   return (
     <div className="container mx-auto p-4 bg-gray-400">
-      <Card color="transparent" shadow="lg" className="mb-4 p-4">
+      <Card color="transparent" shadow={false} className="mb-4 p-4">
         {event.image && (
           <img
             src={event.image}
             alt={event.title}
-            className="sm:w-1/2 md:w-1/3 lg:w-1/2 h-auto object-cover"
+            className="sm:w-1/2 md:w-1/3 lg:w-1/3 h-auto object-cover"
           />
         )}
         <div className="p-4 bg-gray-200 rounded-lg m-5">
