@@ -12,10 +12,13 @@ function Events() {
   // If it's the main Events page, render EventCards
   if (!isEventDetailsPage) {
     return (
-      <div className='bg-contain' style={{backgroundImage: 'url(../src/assets/home/eventsHero.jpg)'}}>
-        <div className='h-40'>
-          {/* <h1 className='text-4xl font-bold tracking-tight text-white bg-gray-400/10 sm:text-6xl m-6 text-center p-10'>Events</h1> */}
-        </div>
+      <div
+        className="bg-contain"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/eventsHero.jpg)`,
+        }}
+      >
+        <div className="h-40">{/* ... */}</div> {/* hero moved to public folder for deployment */}
         <EventCards />
       </div>
     );
