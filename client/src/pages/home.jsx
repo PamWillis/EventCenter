@@ -11,9 +11,7 @@ export default function Home() {
     import('../assets/home/main-ferriswheel.jpg').then((imageModule) => {
       setImage1(imageModule.default);
     });
-  }, []);
-  
-  useEffect(() => {
+
     import('../assets/home/event-center.jpg').then((imageModule) => {
       setImage2(imageModule.default);
     });
