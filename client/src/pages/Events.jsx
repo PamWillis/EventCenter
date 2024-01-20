@@ -15,7 +15,8 @@ function Events() {
       <div
         className="bg-contain"
         style={{
-          backgroundImage: `url(${import.meta.env.VITE_PUBLIC_URL}/public/eventsHero.jpg)`,
+          backgroundImage: `url('/eventsHero.jpg')`,
+          // backgroundImage: `url(${import.meta.env.VITE_PUBLIC_URL}/eventsHero.jpg)`,
         }}
       >
         <div className="h-40">{/* ... */}</div> {/* hero moved to public folder for deployment */}
