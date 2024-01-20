@@ -12,7 +12,7 @@
     "seed": "node server/seeds/seed"
   },
   "engines": {
-    "node": ">=21.6.0 <21.6.0"
+    "node": ">=21.6.0"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.8",
-    "mongodb": "^6.3.0",
+    "mongodb": "6.3",
     "vite": "^5.0.11"
   }
 }
