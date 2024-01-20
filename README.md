@@ -25,7 +25,7 @@
   ## Usage 
   
   The Event Center is to be used by vendors of all kinds in order to create events and register with the site in order to promote their goods and services.  
-  At this time our site deploys, but does not render, here is the link:
+  Here is the link to view our App:
   [Click here](https://eventcenter.onrender.com/)  
   Below demonstrates it is linked to MongoDb Atlas and can receive data:  
   ![MockUp](./client/src/assets/ReadmeImg/Atlas3.png)  
