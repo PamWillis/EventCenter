@@ -28,18 +28,18 @@ export default function Home() {
         <div className="absolute bottom-0 w-full flex">
           {/* Block 1 */}
           <Link to="/Events" className="w-1/3 h-24 flex justify-center items-center bg-[#0dafec] hover:opacity-75">
-            <p className="text-white text-xl font-bold">EVENTS</p>
+            <p className="text-white text-base sm:text-2xl md:text-2xl lg:text-4xl font-bold">EVENTS</p>
           </Link>
           
           {/* Vendors */}
           <Link to="/Vendors" className="w-1/3 h-24 flex justify-center items-center bg-[#0a9f43] hover:opacity-75">
-            <p className="text-white text-xl font-bold">VENDORS</p>
+            <p className="text-white text-base sm:text-2xl md:text-2xl lg:text-4xl font-bold">VENDORS</p>
           </Link>
           
           {/* Block 3 */}
           <Link to="/Signup" className="w-1/3 h-24 flex justify-center items-center bg-[#88192b] hover:opacity-75">
-            <p className="text-white text-xl font-bold">SIGN UP NOW</p>
-          </Link>
+    <p className="text-white text-base sm:text-2xl md:text-2xl lg:text-4xl font-bold">SIGN UP NOW</p>
+</Link>
         </div>
       </div>
 
