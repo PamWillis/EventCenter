@@ -5,7 +5,8 @@ function Vendors() {
     <div
       className="bg-cover"
       style={{
-        backgroundImage: `url(${process.env.VITE_PUBLIC_URL}/public/vendorsHero.jpg)`,
+        backgroundImage: `url('/vendorsHero.jpg')`,
+        // backgroundImage: `url(${process.env.VITE_PUBLIC_URL}/vendorsHero.jpg)`,
       }}
     >
       <VendorCards />
