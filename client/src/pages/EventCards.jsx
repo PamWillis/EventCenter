@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_EVENTS } from '../utils/queries';
 import {
@@ -47,7 +46,7 @@ const EventCards = () => {
       <div className="flex flex-wrap justify-center">
       {sortedEvents.map((event) => (
           // Entire Card Background
-          <Card key={event._id}  className="m-4 p-10 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
+          <Card key={event._id}  className="m-5 p-5 sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-400/10 w-fit">
             <CardHeader
             className='text-center shadow-xl mt-1 bg-transparent'>
               <Typography 

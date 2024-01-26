@@ -1,6 +1,7 @@
 import EventCards from './EventCards';
 import EventDetails from './EventDetails';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import '../assets/css/Events.css';
 
 function Events() {
   // Get the navigate function from react-router-dom
@@ -11,16 +12,14 @@ function Events() {
 
   // If it's the main Events page, render EventCards
   if (!isEventDetailsPage) {
+    const handleEventClick = (eventId) => {
+      // Navigate to the EventDetails page when an event is clicked
+      navigate(`/events/${eventId}`);
+    };
+
     return (
-      <div
-        className="bg-contain"
-        style={{
-          backgroundImage: `url('/eventsHero.jpg')`,
-          // backgroundImage: `url(${import.meta.env.VITE_PUBLIC_URL}/eventsHero.jpg)`,
-        }}
-      >
-        <div className="h-40">{/* ... */}</div> {/* hero moved to public folder for deployment */}
-        <EventCards />
+      <div className="events-container">
+        <EventCards onEventClick={handleEventClick} />
       </div>
     );
   }
