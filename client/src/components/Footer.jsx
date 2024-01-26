@@ -1,8 +1,7 @@
-import React from "react";
 
 const Footer = () => {
     return (
-        <div className="">
+        <div className="h-full">
             <div className="bottom-0 flex-1 ">
                 <div className="text-center w-screen bg-gradient-to-r from-cyan-900 to-green-600 py-3 text-white font-serif text-xl/8">Look at us, coming together, at the <a href="/" style={{color: "white"}}>EventCenter!</a>
                 {/* Navigation links */}

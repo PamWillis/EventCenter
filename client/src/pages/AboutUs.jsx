@@ -1,4 +1,4 @@
-import React from 'react';
+
 import daveImage from '../assets/home/dave.jpg';
 import dave2Image from '../assets/home/dave2.jpg';
 import josiahImage from '../assets/home/josiah.jpg';
